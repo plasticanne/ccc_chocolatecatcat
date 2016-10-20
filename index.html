@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="Templates/ICON.ico" rel="SHORTCUT ICON">
     <meta name="author" content="plastic anne">
-    <title>猫ガクエン</title>
-    <meta name="title" content="猫ガクエン">
-    <meta property="og:title" content="猫ガクエン">
+    <title>貓咪學園</title>
+    <meta name="title" content="貓咪學園">
+    <meta property="og:title" content="貓咪學園">
     <meta name="description" content="做一個貓咪做不到的事">
     <meta property="og:description" content="做一個貓咪做不到的事">
     <meta name="twitter:description" content="做一個貓咪做不到的事">
@@ -124,13 +124,15 @@
     #footbtn {
         width: 284px;
         height: 86px;
+        margin-left: -155px;
+        left:50%;
         position: absolute;
         top: 0px;
     }
     
     #footblk {
-        text-align: center;
-        margin-left: -155px;
+   //     text-align: center;
+   //     margin-left: -155px;
         width: 100%;
     }
     
@@ -150,19 +152,6 @@
     
     @media all and (-ms-high-contrast:none),
     (min-width: 0\0) {
-        #footblk {
-            position: absolute;
-            text-align: center;
-            margin-left: -155px;
-            width: 100%;
-            left: 50%;
-        }
-        #footbtn {
-            width: 284px;
-            height: 86px;
-            position: absolute;
-            top: -72px;
-        }
         #clickArea {
             background-color: black;
             opacity: 0;
@@ -187,6 +176,7 @@
     var opera = navigator.userAgent.toLowerCase().indexOf("op") > -1;
     var mobile_safari = ((navigator.userAgent.toString().toLowerCase().indexOf("iphone") != -1) || (navigator.userAgent.toString().toLowerCase().indexOf("ipod") != -1) || (navigator.userAgent.toString().toLowerCase().indexOf("ipad") != -1)) ? true : false;
     var android = navigator.userAgent.indexOf("Android") > -1;
+    var androidnative = (navigator.userAgent.indexOf("AppleWebKit") > -1) && (navigator.userAgent.indexOf("Android") > -1);
 
     function videoFormatCheck() {
         var testEl = document.createElement("video"),
@@ -218,10 +208,10 @@
         ////網頁完整載入才出現
         $(".load").show();
         ////禁用部分瀏覽器影片以圖片取代
-        if (videoFormatCheck()["webm"] != true &&
+        if ((videoFormatCheck()["webm"] != true &&
             videoFormatCheck()["h264"] != true &&
-            videoFormatCheck()["ogg"] != true ||
-            (chrome == true && android == true)) {
+            videoFormatCheck()["ogg"] != true) ||
+            (androidnative == true)) {
             $("#video>video").remove();
             $("#video").html('<img src="Templates/Bg_01.png" style="width:100%;height: auto;"/>');
         };
