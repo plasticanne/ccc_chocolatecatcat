@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link href="Templates/ICON.ico" rel="SHORTCUT ICON">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>猫ガクエン</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+
+<body>
+<div align="center"><strong>這是一個故事，一個沒有救贖的故事。</strong></div>
+<div align="center"><strong><br />
+</strong></div>
+<div align="center"><strong>這是一種結局，一種不盡完美的結局。</strong></div>
+<div align="center"><strong><br />
+</strong></div>
+<div align="center"><strong>這是一齣童話，僅獻給還不想長大，有許多話還不想說的我們。</strong></div>
+<div><br />
+</div>
+<div><br />
+</div>
+<div><br />
+</div>
+<div><br />
+</div>
+<div><br />
+</div>
+<div><strong>◆遊戲介紹</strong></div>
+<div><br />
+</div>
+<div><br />
+</div>
+<div>故事是發生在一間大學的開學日。<br />
+  <br />
+  那一天，剛好有四位學生缺席。<br />
+  <br />
+  他們懷著各自的理由，不約而同的在這個時間點，對某個都市傳說展開調查。<br />
+  <br />
+  在這四位學生之中，有一位戴著貓耳的少女在調查途中失去了意識。<br />
+  <br />
+  當她再次睜開眼時，眼前所見的......是令人完全無法想像的場景<br />
+  <br />
+  <br />
+  戴著貓耳的少女將要面對許多離奇的童話故事。<br />
+  <br />
+  遊戲中，她必須要逐一解決這些由童話所衍生的難題，才得以繼續前進<br />
+  <br />
+  <br />
+  <div>在遊玩時也請您確實的，認真的接下遊戲中的挑戰。</div>
+  <br />
+  <div>因為那，並非只是給予劇中角色的考驗。</div>
+  <br />
+  <div>也是向您所提出的謎題。<br />
+  </div>
+  <br />
+  <div><br />
+  </div>
+  <div><br />
+  </div>
+  <div><br />
+  </div>
+  <div><br />
+  </div>
+  <div><strong>◆遊戲資訊</strong></div>
+  <div><br />
+  </div>
+  <div><br />
+  </div>
+  <div>
+    <div>遊戲名稱：私塾</div>
+    <div>製作團隊：貓咪學園</div>
+    <div>遊戲類型：推理解謎童話</div>
+    <div>遊戲時間：約三到六小時</div>
+    <div>使用程式：RPG Maker VX Ace</div>
+    <div>團隊成員：<a href="http://home.gamer.com.tw/creationCategory.php?owner=wer227942914&amp;c=342435"><strong>製作人員名單</strong></a>（持續更新中）</div>
+    <div>使用素材：Senses Circuit</div>
+    <div>　　　　　Episodes &amp; Melody</div>
+    <div>　　　　　Éric Alfred Leslie Satie</div>
+    <div>　　　　　Ludwig van Beethoven</div>
+    <div>　　　　　Анато́лий Константи́нович Ля́дов</div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><strong>◆遊戲畫面</strong></div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><img src="Templates/A_01.JPG" alt="" /><br />
+    </div>
+    <div><br />
+    </div>
+    <div>◇原創的詩詞作為遊戲標題，在遊戲當中也稍微使用了一些常見的相聲段子。</div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><img src="Templates/A_02.JPG" alt="" /><br />
+    </div>
+    <div><br />
+    </div>
+    <div>◇遊戲的存檔畫面，幾乎不使用制式的UI，而是更加融入故事的介面。</div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><img src="Templates/A_03.JPG" alt="" /><br />
+    </div>
+    <div><br />
+    </div>
+    <div>◇置身童話世界裡的遊戲地圖，可以和許多可愛的場景物件互動。</div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><img src="Templates/A_04.JPG" alt="" /><br />
+    </div>
+    <div><br />
+    </div>
+    <div>◇地圖除了非常夢幻之外，也藏了許多的彩蛋等著您去發現唷！</div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><strong>◆遊戲音樂</strong></div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><img src="http://i2.bahamut.com.tw/editor/movie_pre.gif" alt="" width="640" height="360" data-movie="http://www.youtube.com/embed/gcfLCa-FcvM" /></div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><img src="http://i2.bahamut.com.tw/editor/movie_pre.gif" alt="" width="640" height="360" data-movie="http://www.youtube.com/embed/aEhJ137aMqo" /></div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><img src="http://i2.bahamut.com.tw/editor/movie_pre.gif" alt="" width="640" height="360" data-movie="http://www.youtube.com/embed/L5KZtnzbfv0" /></div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><img src="http://i2.bahamut.com.tw/editor/movie_pre.gif" alt="" width="640" height="360" data-movie="http://www.youtube.com/embed/GagtaDKjqig" /></div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><strong>◆遊戲漫畫</strong></div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+  </div>
+</div>
+<img src="Templates/B_01.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_02.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_03.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_04.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_05.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_06.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_07.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_08.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_09.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_10.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_11.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_12.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_13.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_14.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_15.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_16.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_17.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_18.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_19.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_20.JPG" alt="" /><br />
+<br />
+<br />
+<img src="Templates/B_21.JPG" alt="" />
+<div><br />
+</div>
+<div><br />
+</div>
+<div><br />
+</div>
+<div><br />
+</div>
+<div><br />
+</div>
+<div><strong>◆</strong><strong>遊戲下載</strong><br />
+  <br />
+  <br />
+  <a href="https://drive.google.com/folderview?id=0B0jkzIKq7i7Fcm1XS0FhN3pDeUk&amp;usp=sharing">Google</a><br />
+  <br />
+  <a href="https://drive.google.com/folderview?id=0B5ExbUKg_ADmdVlCdlAyTEh3am8&amp;usp=sharing">Google 分流</a><br />
+</div>
+<div><br />
+  <strong><br />
+    ◆如果發現檔案偶爾會不見，那就是作者正在更新喔。</strong></div>
+<div><strong><br />
+</strong></div>
+<div><strong>◆版本更新的時候，請重新下載遊戲並將存檔及Memory.dat，放入新的遊戲檔案當中。</strong><br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+</div>
+<div><strong>◆貓咪感言</strong></div>
+<div><br />
+</div>
+<div><br />
+</div>
+<div>私塾已經製作完了呢！</div>
+<div><br />
+</div>
+<div>在這裡小喵要來宣傳一下<a href="https://store.line.me/stickershop/product/1221201/zh-Hant">舞台上的貓耳少女</a>。</div>
+<div><br />
+</div>
+<div>之所以會出版這樣的貼圖，是為了籌備Steam的上架費用，所特別製作的！</div>
+<div><br />
+</div>
+<div>如果是喜歡此遊戲，並且希望可以看到後續的劇情，且對遊戲製作有興趣。</div>
+<div><br />
+</div>
+<div>那麼<a href="http://home.gamer.com.tw/creationDetail.php?sn=2863739">『貓咪學園』</a>，歡迎您的加入！</div>
+<div><br />
+</div>
+<div>目前也開始考慮將遊戲翻譯成日文版與英文版，所以依舊是持續的徵相關人才喔。</div>
+<div><br />
+</div>
+<div><br />
+</div>
+<div><br />
+</div>
+<div><br />
+</div>
+<div><br />
+</div>
+<div>
+  <div><strong>◆著作聲明</strong></div>
+  <div><br />
+  </div>
+  <div><br />
+  </div>
+  <div>
+    <div>遊戲中除了部份音樂素材，所有的繪圖、音樂、故事內容著作權。</div>
+    <div><br />
+    </div>
+    <div>都屬於原作者以及【貓咪學園】製作團隊所有。</div>
+    <div><br />
+    </div>
+    <div>禁止在此遊戲以外使用、轉載、再製。</div>
+  </div>
+  <br />
+  <div><br />
+  </div>
+  <div><br />
+  </div>
+  <div><br />
+  </div>
+  <div><br />
+  </div>
+  <div>
+    <div><strong>◆實況說明</strong></div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div>實況本遊戲並不需要再次獲得允許。</div>
+    <div><br />
+    </div>
+    <div>但希望可以通知實況的時間，這樣小喵才有辦法，邀請團員一同前往欣賞。</div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div>歡迎任何人的實況，但禁止以破壞遊戲體驗的方式直接劇透。</div>
+    <div><br />
+    </div>
+    <div>本遊戲含有血腥和一點點糟糕的劇情表現。</div>
+    <div><br />
+    </div>
+    <div>實況之前請先斟酌。</div>
+  </div>
+  <div><br />
+  </div>
+  <div><br />
+  </div>
+  <div><br />
+  </div>
+  <div><br />
+  </div>
+  <div><br />
+  </div>
+  <div>
+    <div><strong>◆聯絡我們</strong></div>
+    <div><br />
+    </div>
+    <div><br />
+    </div>
+    <div><a href="http://home.gamer.com.tw/homeindex.php?owner=wer227942914"><strong>巴哈姆特</strong></a></div>
+    <div><strong><br />
+    </strong></div>
+    <div><a href="https://www.facebook.com/ChocolateMacaronCatCat/"><strong>粉絲專頁</strong></a></div>
+  </div>
+  <div><br />
+  </div>
+  <div><br />
+  </div>
+  <div><br />
+  </div>
+  <br />
+  <br />
+</div>
+</body>
+</html>
+

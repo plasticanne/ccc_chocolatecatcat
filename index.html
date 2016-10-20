@@ -1,0 +1,317 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="Templates/ICON.ico" rel="SHORTCUT ICON">
+    <meta name="author" content="plastic anne">
+    <title>猫ガクエン</title>
+    <meta name="title" content="猫ガクエン">
+    <meta property="og:title" content="猫ガクエン">
+    <meta name="description" content="做一個貓咪做不到的事">
+    <meta property="og:description" content="做一個貓咪做不到的事">
+    <meta name="twitter:description" content="做一個貓咪做不到的事">
+    <meta itemprop="description" content="做一個貓咪做不到的事">
+    <link rel="image_src" href="Templates/Catteacher.png">
+    <link itemprop="image" href="Templates/Catteacher.png">
+    <meta property="og:image" content="Templates/Catteacher.png">
+    <meta name="twitter:image" content="Templates/Catteacher.png">
+    <meta itemprop="image" content="Templates/Catteacher.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- TemplateBeginEditable name="doctitle" -->
+    <!-- TemplateEndEditable -->
+    <!-- TemplateBeginEditable name="head" -->
+    <!-- TemplateEndEditable -->
+    <style type="text/css">
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        background-color: #000;
+    }
+    
+    #clickArea {
+        position: absolute;
+        z-index: 200;
+        width: 100%;
+        height: 90%;
+    }
+    
+    #catStory {
+        position: fixed;
+        z-index: 300;
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+    
+    #exit {
+        z-index: 306;
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        top: 2px;
+        right: 20px;
+    }
+    
+    #catStoryBack {
+        position: fixed;
+        z-index: 205;
+        width: 100%;
+        height: 100%;
+        opacity: 0.8;
+        background-color: #000;
+    }
+    
+    #catStoryiframe {
+        position: fixed;
+        z-index: 305;
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+    
+    #catStoryBox {
+        position: fixed;
+        z-index: 305;
+        width: 100%;
+        text-align: center;
+    }
+    
+    #quest {
+        width: 600px;
+        height: 200px;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    
+    #yes,
+    #no {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    
+    #doc {
+        position: absolute;
+        z-index: 201;
+        top: 60px;
+        left: 0px;
+        width: 240px;
+        height: 280px;
+        display: none;
+    }
+    
+    .load {
+        display: none;
+    }
+    
+    #footbtn {
+        width: 284px;
+        height: 86px;
+        position: absolute;
+        top: 0px;
+    }
+    
+    #footblk {
+        text-align: center;
+        margin-left: -155px;
+        width: 100%;
+    }
+    
+    @media screen and (max-width: 767px) {
+        #quest {
+            width: 90%;
+            margin-top: 8%;
+            margin-bottom: 5%;
+        }
+        #yes,
+        #no {
+            width: 50%;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+    }
+    
+    @media all and (-ms-high-contrast:none),
+    (min-width: 0\0) {
+        #footblk {
+            position: absolute;
+            text-align: center;
+            margin-left: -155px;
+            width: 100%;
+            left: 50%;
+        }
+        #footbtn {
+            width: 284px;
+            height: 86px;
+            position: absolute;
+            top: -72px;
+        }
+        #clickArea {
+            background-color: black;
+            opacity: 0;
+        }
+    }
+    </style>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+    function videoFormatCheck() {
+        var testEl = document.createElement("video"),
+            mpeg4, h264, ogg, webm;
+        if (testEl.canPlayType) {
+            // Check for MPEG-4 support
+            mpeg4 = "" !== testEl.canPlayType('video/mp4; codecs="mp4v.20.8"');
+
+            // Check for h264 support
+            h264 = "" !== (testEl.canPlayType('video/mp4; codecs="avc1.42E01E"') || testEl.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"'));
+
+            // Check for Ogg support
+            ogg = "" !== testEl.canPlayType('video/ogg; codecs="theora"');
+
+            // Check for Webm support
+            webm = "" !== testEl.canPlayType('video/webm; codecs="vp8, vorbis"');
+        }
+        return {
+            "mpeg4": mpeg4,
+            "h264": h264,
+            "ogg": ogg,
+            "webm": webm
+        }
+    };
+    $(window).load(function() {
+
+        $(".load").show();
+
+        if (videoFormatCheck()["webm"] != true &&
+            videoFormatCheck()["h264"] != true &&
+            videoFormatCheck()["ogg"] != true) {
+            $("#video>video").remove();
+            $("#video").html('<img src="Templates/Bg_01.png" style="width:100%;height: auto;"/>');
+        };
+
+        $('#open').hover(
+            function() {
+                if ($('#doc').css("display") == 'none') {
+                    $(this).attr("src", "Templates/Opened_02.gif?" + new Date().getTime());
+                }
+            },
+            function() {
+                if ($('#doc').css("display") == 'none') {
+                    $(this).attr("src", "Templates/Opened_01.png?" + new Date().getTime());
+                }
+            });
+        $('#open').click(function() {
+            if ($('#doc').css("display") == 'block') {
+                $(this).mouseleave(function() {
+                    $(this).attr("src", "Templates/Opened_01.png?" + new Date().getTime());
+                })
+            };
+            $('#doc').slideToggle();
+        });
+        $('#clickArea,#footbtn').click(function() {
+            $("#catStory").css("display", "block");
+            $("body").css("overflow", "hidden");
+        });
+        $('#no,#exit').click(function() {
+            $("#catStory").css("display", "none");
+            $("body").css("overflow", "auto");
+        });
+        $('#yes').click(function() {
+            $("#catStoryBox").css("display", "none");
+            $("#catStoryiframe").css("display", "block");
+        });
+
+
+    });
+    </script>
+</head>
+
+<body>
+    <script type="text/javascript">
+    function MM_goToURL() { //v3.0
+        var i, args = MM_goToURL.arguments;
+        document.MM_returnValue = false;
+        for (i = 0; i < (args.length - 1); i += 2) eval(args[i] + ".location='" + args[i + 1] + "'");
+    }
+    </script>
+    <div id="catStory">
+        <img id="exit" src="Templates/IntersectCat.png" />
+        <div id="catStoryBack"></div>
+        <iframe id="catStoryiframe" allowtransparency="true" src="catStory.html"></iframe>
+        <div id="catStoryBox">
+            <img id="quest" src="Templates/Secret_01.png" />
+            <br>
+            <img id="yes" src="Templates/Secret_Yes.png" />
+            <img id="no" src="Templates/Secret_No.png" />
+        </div>
+    </div>
+    <div id="doc">
+        <img src="Templates/Catbasket_01.png" alt="" style="position: absolute; top: 0px; width: 240px; height: 260px; " border="0" />
+        <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+            <img src="Templates/Moon_01.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 14px; top: 30px;" border="0" /></a>
+        <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+            <img id="m02" src="Templates/Moon_02.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 68px; top: 30px;" border="0" /></a>
+        <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+            <img id="m03" src="Templates/Moon_03.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 122px; top: 30px;" border="0" /></a>
+        <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+            <img id="m04" src="Templates/Moon_04.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 175px; top: 30px;" border="0" /></a>
+        <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+            <img id="m05" src="Templates/Moon_05.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 14px; top: 75px;" border="0" /></a>
+        <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+            <img id="m06" src="Templates/Moon_06.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 68px; top: 75px;" border="0" /></a>
+        <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+            <img id="m07" src="Templates/Moon_07.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 122px; top: 75px;" border="0" /></a>
+        <a href="http://chocolatecatcat.web.fc2.com/silent_august.html" target="_blank">
+            <img id="m08" src="Templates/Moon_Book.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 175px; top: 75px;" border="0" /></a>
+        <a href="http://chocolatecatcat.web.fc2.com/disgust_september.html" target="_blank">
+            <img id="m09" src="Templates/Moon_Book.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 14px; top: 120px;" border="0" /></a>
+        <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+            <img id="m10" src="Templates/Moon_10.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 68px; top: 120px;" border="0" /></a>
+        <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+            <img id="m11" src="Templates/Moon_11.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 122px; top: 120px;" border="0" /></a>
+        <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+            <img id="m12" src="Templates/Moon_12.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 175px; top: 120px;" border="0" /></a>
+        <a href="http://chocolatecatcat.web.fc2.com/donuts.html" target="_blank">
+            <img id="mBo" src="Templates/Moon_Book.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 40px; top: 165px;" border="0" /></a>
+        <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+            <img id="mPu" src="Templates/Moon_Purple.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 95px; top: 165px;" border="0" /></a>
+        <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+            <img id="mPu" src="Templates/Moon_Purple2.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 150px; top: 165px;" border="0" /></a>
+    </div>
+    <div class='load' ; style="width: 100%; height: 70px; background: #C00; position: relative;">
+        <img id="open" src="Templates/Opened_01.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 20px; top: 10px;" border="0" />
+        <img src="Templates/B001.png" style="width: 100%; height: 70px" />
+        <a target="_blank" ; href='https://twitter.com/chocolatecatdon' ;return document.MM_returnValue ">
+<img src="Templates/sns_twitter.png " alt=" " id="a " style="width: 50px; height: 50px; position: absolute; right: 20px; top: 10px; " border="0 " />
+</a>
+
+<a target="_blank "; href='https://www.facebook.com/ChocolateMacaronCatCat/';return document.MM_returnValue">
+            <img src="Templates/sns_facebook.png" alt="" width="50" height="50" id="a01" style="width: 48px; height: 46px; position: absolute; right: 82px; top: 13px;" border="0" />
+        </a>
+    </div>
+    <div id="clickArea">
+    </div>
+    <div id="video" class='load'>
+        <video preload="auto" autoplay="autoplay" loop="loop" muted="1" webkit-playsinline="" style="width: 100%; height: auto;">
+            <source src="Templates/Bg_Film.webm" type="video/webm">
+            <source src="Templates/Bg_Film.mp4" type="video/mp4">
+            <source src="Templates/Bg_Film.ogg" type="video/ogg">
+        </video>
+    </div>
+    <div class='load' ; style="width: 100%; height: 70px; background: #C00; position: relative;">
+        <img src="Templates/B001.png" style="width: 100%; height: 70px" />
+        <div id="footblk" class='load'>
+            <img id="footbtn" src="Templates/Secret_02.png" />
+            <img src="Templates/copyright.png" style="width: 310px; height: 30px; position: fixed; right:-80px ;margin-top: 10px;" />
+        </div>
+    </div>
+</body>
+
+</html>
