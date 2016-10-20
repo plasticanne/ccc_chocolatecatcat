@@ -112,6 +112,15 @@
         display: none;
     }
     
+    #copyright {
+        z-index: 100;
+        width: 155px;
+        height: 15px;
+        position: fixed;
+        margin-top: -100px;
+        right: -30px;
+    }
+    
     #footbtn {
         width: 284px;
         height: 86px;
@@ -162,6 +171,23 @@
     </style>
     <script src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript">
+    ////test browser and video format
+    var supportTouch = !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
+    var ie6 = false /*@cc_on || @_jscript_version < 5.7 @*/
+    var ie7 = (document.all && !window.opera && window.XMLHttpRequest && navigator.userAgent.toString().toLowerCase().indexOf('trident/4.0') == -1) ? true : false;
+    var ie8 = (navigator.userAgent.toString().toLowerCase().indexOf('trident/4.0') != -1);
+    var ie9 = navigator.userAgent.toString().toLowerCase().indexOf("trident/5") > -1;
+    var ie10 = navigator.userAgent.toString().toLowerCase().indexOf("trident/6") > -1;
+    var ie11 = navigator.userAgent.toString().toLowerCase().indexOf("trident/7") > -1;
+    var iexplorer = navigator.userAgent.indexOf('MSIE') > -1;
+    var chrome = (navigator.userAgent.indexOf('Chrome') > -1) && (navigator.userAgent.indexOf("op") == -1) ? true : false;
+    var firefox = navigator.userAgent.indexOf('Firefox') > -1;
+    var safari = (navigator.userAgent.indexOf("Safari") > -1) && (navigator.userAgent.indexOf('Chrome') == -1) ? true : false;
+    var camino = navigator.userAgent.indexOf("Camino") > -1;
+    var opera = navigator.userAgent.toLowerCase().indexOf("op") > -1;
+    var mobile_safari = ((navigator.userAgent.toString().toLowerCase().indexOf("iphone") != -1) || (navigator.userAgent.toString().toLowerCase().indexOf("ipod") != -1) || (navigator.userAgent.toString().toLowerCase().indexOf("ipad") != -1)) ? true : false;
+    var android = navigator.userAgent.indexOf("Android") > -1;
+
     function videoFormatCheck() {
         var testEl = document.createElement("video"),
             mpeg4, h264, ogg, webm;
@@ -185,17 +211,21 @@
             "webm": webm
         }
     };
+
+
+    ////main
     $(window).load(function() {
-
+        ////網頁完整載入才出現
         $(".load").show();
-
+        ////禁用部分瀏覽器影片以圖片取代
         if (videoFormatCheck()["webm"] != true &&
             videoFormatCheck()["h264"] != true &&
-            videoFormatCheck()["ogg"] != true) {
+            videoFormatCheck()["ogg"] != true ||
+            (chrome == true && android == true)) {
             $("#video>video").remove();
             $("#video").html('<img src="Templates/Bg_01.png" style="width:100%;height: auto;"/>');
         };
-
+        ////菜單動畫
         $('#open').hover(
             function() {
                 if ($('#doc').css("display") == 'none') {
@@ -215,6 +245,7 @@
             };
             $('#doc').slideToggle();
         });
+        ////團隊說明頁
         $('#clickArea,#footbtn').click(function() {
             $("#catStory").css("display", "block");
             $("body").css("overflow", "hidden");
@@ -227,7 +258,7 @@
             $("#catStoryBox").css("display", "none");
             $("#catStoryiframe").css("display", "block");
         });
-
+        ////
 
     });
     </script>
@@ -308,8 +339,8 @@
     <div class='load' ; style="width: 100%; height: 70px; background: #C00; position: relative;">
         <img src="Templates/B001.png" style="width: 100%; height: 70px" />
         <div id="footblk" class='load'>
+            <img id="copyright" src="Templates/copyright.png" />
             <img id="footbtn" src="Templates/Secret_02.png" />
-            <img src="Templates/copyright.png" style="width: 310px; height: 30px; position: fixed; right:-80px ;margin-top: 10px;" />
         </div>
     </div>
 </body>
