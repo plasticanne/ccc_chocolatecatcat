@@ -27,7 +27,7 @@
     <!-- TemplateEndEditable -->
     <!-- TemplateBeginEditable name="head" -->
     <!-- TemplateEndEditable -->
-    <link href="../Templates/ICON.ico" rel="SHORTCUT ICON">
+    <link href="Templates/ICON.ico" rel="SHORTCUT ICON">
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <style type="text/css">
     body {
@@ -97,6 +97,13 @@
     #no {
         margin-left: 10%;
         margin-right: 10%;
+    }
+    
+    #open.active,
+    #open:active,
+    #open:focus,
+    #open:hover {
+        content: url("Templates/Opened_02.gif");
     }
     
     #doc {
@@ -222,22 +229,11 @@
             $("#video").html('<img src="Templates/Bg_01.png" style="width:100%;height: auto;"/>');
         };
         ////菜單動畫
-        $('#open').hover(
-            function() {
-                if ($('#doc').css("display") == 'none') {
-                    $(this).attr("src", "Templates/Opened_02.gif?" + new Date().getTime());
-                }
-            },
-            function() {
-                if ($('#doc').css("display") == 'none') {
-                    $(this).attr("src", "Templates/Opened_01.png?" + new Date().getTime());
-                }
-            });
         $('#open').click(function() {
             if ($('#doc').css("display") == 'block') {
-                $(this).mouseleave(function() {
-                    $(this).attr("src", "Templates/Opened_01.png?" + new Date().getTime());
-                })
+                $(this).removeClass('active');
+            } else {
+                $(this).addClass("active");
             };
             $('#doc').slideToggle();
         });
