@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="Templates/ICON.ico" rel="SHORTCUT ICON">
     <meta name="author" content="plastic anne">
     <title>貓咪學園</title>
     <meta name="title" content="貓咪學園">
@@ -28,6 +27,8 @@
     <!-- TemplateEndEditable -->
     <!-- TemplateBeginEditable name="head" -->
     <!-- TemplateEndEditable -->
+    <link href="../Templates/ICON.ico" rel="SHORTCUT ICON">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <style type="text/css">
     body {
         margin-left: 0px;
@@ -108,6 +109,12 @@
         display: none;
     }
     
+    #doc>a>img {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+    }
+    
     .load {
         display: none;
     }
@@ -158,7 +165,6 @@
         }
     }
     </style>
-    <script src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript">
     ////test browser and video format
     var supportTouch = !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
@@ -255,13 +261,14 @@
 </head>
 
 <body>
+    <!--
     <script type="text/javascript">
     function MM_goToURL() { //v3.0
         var i, args = MM_goToURL.arguments;
         document.MM_returnValue = false;
         for (i = 0; i < (args.length - 1); i += 2) eval(args[i] + ".location='" + args[i + 1] + "'");
     }
-    </script>
+    </script>-->
     <div id="catStory">
         <img id="exit" src="Templates/IntersectCat.png">
         <div id="catStoryBack"></div>
@@ -274,47 +281,61 @@
         </div>
     </div>
     <div id="doc">
-        <img src="Templates/Catbasket_01.png" alt="" style="position: absolute; top: 0px; width: 240px; height: 260px; " border="0">
+        <img src="Templates/Catbasket_01.png" style="position: absolute; top: 0px; width: 240px; height: 260px; ">
         <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
-            <img src="Templates/Moon_01.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 14px; top: 30px;" border="0"></a>
+            <img src="Templates/Moon_01.png" style="left: 14px; top: 30px;">
+        </a>
         <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
-            <img id="m02" src="Templates/Moon_02.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 68px; top: 30px;" border="0"></a>
+            <img id="m02" src="Templates/Moon_02.png" style="left: 68px; top: 30px;">
+        </a>
         <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
-            <img id="m03" src="Templates/Moon_03.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 122px; top: 30px;" border="0"></a>
+            <img id="m03" src="Templates/Moon_03.png" style="left: 122px; top: 30px;">
+        </a>
         <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
-            <img id="m04" src="Templates/Moon_04.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 175px; top: 30px;" border="0"></a>
+            <img id="m04" src="Templates/Moon_04.png" style="left: 175px; top: 30px;">
+        </a>
         <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
-            <img id="m05" src="Templates/Moon_05.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 14px; top: 75px;" border="0"></a>
+            <img id="m05" src="Templates/Moon_05.png" style="left: 14px; top: 75px;">
+        </a>
         <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
-            <img id="m06" src="Templates/Moon_06.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 68px; top: 75px;" border="0"></a>
+            <img id="m06" src="Templates/Moon_06.png" style="left: 68px; top: 75px;">
+        </a>
         <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
-            <img id="m07" src="Templates/Moon_07.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 122px; top: 75px;" border="0"></a>
-        <a href="silent_august.html" target="_blank">
-            <img id="m08" src="Templates/Moon_Book.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 175px; top: 75px;" border="0"></a>
-        <a href="disgust_september.html" target="_blank">
-            <img id="m09" src="Templates/Moon_Book.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 14px; top: 120px;" border="0"></a>
+            <img id="m07" src="Templates/Moon_07.png" style="left: 122px; top: 75px;">
+        </a>
+        <a href="silent_august/silent_august.html" target="_blank">
+            <img id="m08" src="Templates/Moon_Book.png" style="left: 175px; top: 75px;">
+        </a>
+        <a href="disgusting_september/disgusting_september.html" target="_blank">
+            <img id="m09" src="Templates/Moon_Book.png" style="left: 14px; top: 120px;">
+        </a>
         <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
-            <img id="m10" src="Templates/Moon_10.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 68px; top: 120px;" border="0"></a>
+            <img id="m10" src="Templates/Moon_10.png" style="left: 68px; top: 120px;">
+        </a>
         <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
-            <img id="m11" src="Templates/Moon_11.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 122px; top: 120px;" border="0"></a>
+            <img id="m11" src="Templates/Moon_11.png" style="left: 122px; top: 120px;">
+        </a>
         <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
-            <img id="m12" src="Templates/Moon_12.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 175px; top: 120px;" border="0"></a>
-        <a href="donuts.html" target="_blank">
-            <img id="mBo" src="Templates/Moon_Book.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 40px; top: 165px;" border="0"></a>
+            <img id="m12" src="Templates/Moon_12.png" style="left: 175px; top: 120px;">
+        </a>
+        <a href="cat_school/cat_school.html" target="_blank">
+            <img id="mBo" src="Templates/Moon_Book.png" style="left: 40px; top: 165px;">
+        </a>
         <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
-            <img id="mPu" src="Templates/Moon_Purple.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 95px; top: 165px;" border="0"></a>
+            <img id="mPu" src="Templates/Moon_Purple.png" style="left: 95px; top: 165px;">
+        </a>
         <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
-            <img id="mPu" src="Templates/Moon_Purple2.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 150px; top: 165px;" border="0"></a>
+            <img id="mPu" src="Templates/Moon_Purple2.png" style="left: 150px; top: 165px;">
+        </a>
     </div>
     <div class='load' ; style="width: 100%; height: 70px; background: #C00; position: relative;">
-        <img id="open" src="Templates/Opened_01.png" alt="" style="width: 50px; height: 50px; position: absolute; left: 20px; top: 10px;" border="0">
+        <img id="open" src="Templates/Opened_01.png" style="width: 50px; height: 50px; position: absolute; left: 20px; top: 10px;">
         <img src="Templates/B001.png" style="width: 100%; height: 70px">
-        <a target="_blank" ; href='https://twitter.com/chocolatecatdon' ;return document.MM_returnValue ">
-<img src="Templates/sns_twitter.png " alt=" " id="a " style="width: 50px; height: 50px; position: absolute; right: 20px; top: 10px; " border="0 ">
-</a>
-
-<a target="_blank "; href='https://www.facebook.com/ChocolateMacaronCatCat/';return document.MM_returnValue">
-            <img src="Templates/sns_facebook.png" alt="" width="50" height="50" id="a01" style="width: 48px; height: 46px; position: absolute; right: 82px; top: 13px;" border="0">
+        <a target="_blank" ; href='https://twitter.com/chocolatecatdon'>
+            <img src="Templates/sns_twitter.png " style="width: 50px; height: 50px; position: absolute; right: 20px; top: 10px;">
+        </a>
+        <a target="_blank" ; href='https://www.facebook.com/ChocolateMacaronCatCat/'>
+            <img src="Templates/sns_facebook.png" width="50" height="50" id="a01" style="width: 48px; height: 46px; position: absolute; right: 82px; top: 13px;" border="0">
         </a>
     </div>
     <div id="clickArea">

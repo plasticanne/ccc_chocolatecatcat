@@ -4,8 +4,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="X-UA-Compatible" content="IE=9">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="Templates/ICON.ico" rel="SHORTCUT ICON">
+<link href="../Templates/ICON.ico" rel="SHORTCUT ICON">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Silent August</title>
 
 <head>
@@ -19,10 +22,17 @@
         z-index: 999;
         right: 20px;
         bottom: 20px;
-        background: url("Templates/Moon_Cat.png") no-repeat center 43%;
+        background: url("../Templates/Moon_Cat.png") no-repeat center 43%;
         -webkit-border-radius: 30px;
         -moz-border-radius: 30px;
         border-radius: 30px;
+    }
+    
+    #FB {
+        position: fixed;
+        z-index: 999;
+        right: 18px;
+        bottom: 70px;
     }
     
     a:link {
@@ -118,9 +128,6 @@
         opacity: 0.5;
     }
     </style>
-    <script src="js/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
     <!-- 從這裡開始是小工具 -->
     <script type="text/javascript">
     var amountScrolled = 300;
@@ -164,6 +171,9 @@
             </li>
         </ul>
     </div>
+    <div id="FB">
+        <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FChocolateMacaronCatCat%2F&width=52&layout=box_count&action=like&show_faces=false&share=true&height=65&appId" width="65" height="90" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+    </div>
     <div class="row">
         <div class="col-sm-12" style="margin-top: 150px;">
             <p align="center">This is a rabbit, an innocent and lovely rabbit. </p>
@@ -173,7 +183,7 @@
         <div class="col-sm-8 col-sm-offset-1">
             <p>
                 <br>
-                <a href="https://www.facebook.com/ChocolateMacaronCatCat/" target="_blank"><img src="silent_august/Point_me.gif" style="width:95% ;max-width:600px ;margin:10px;" alt="點我點我"></a>
+                <a href="https://www.facebook.com/ChocolateMacaronCatCat/" target="_blank"><img src="Point_me.gif" style="width:95% ;max-width:600px ;margin:10px;" alt="點我點我"></a>
             </p>
             <a href="#" class="back-to-top"></a>
             <!-- 這行開始回到top的tag -->
@@ -193,7 +203,7 @@
             <p>&nbsp;</p>
             <p>Name:Silent August
                 <br> Publisher:
-                <a href="http://chocolatecatcat.web.fc2.com/" target="_blank">貓咪學園</a>
+                <a href="../index.html" target="_blank">貓咪學園</a>
                 <br> Genre:Terror exploration
                 <br> Game Time：約十到二十分鐘
                 <br> Game outcome：有三個結局
@@ -203,7 +213,7 @@
                 <br> Use material：
                 <a href="http://www.ep-melody.com/" target="_blank">Episodes & Melody</a>
                 <p>&nbsp;</p>
-                <p><img src="silent_august/Publicity_01.JPG" style="width:95% ;max-width:1000px;margin:10px;" alt="disgust_september/Publicity_01.jpg"> </p>
+                <p><img src="Publicity_01.JPG" style="width:95% ;max-width:1000px;margin:10px;" alt="Publicity_01.jpg"> </p>
             </p>
         </div>
     </div>
@@ -211,16 +221,16 @@
         <div class="col-sm-10 col-sm-offset-1" style="margin-top: 50px;">
             <h1>◆Screenshot </h1>
             <p>&nbsp;</p>
-            <p><img src="silent_august/Publicity_03.JPG" style="width:95% ;max-width:1000px;margin:10px;" alt="disgust_september/Publicity_03.jpg"> </p>
-            <p><img src="silent_august/Publicity_04.JPG" style="width:95% ;max-width:1000px;margin:10px;" alt="disgust_september/Publicity_04.jpg"> </p>
-            <p><img src="silent_august/Publicity_05.JPG" style="width:95% ;max-width:1000px;margin:10px;" alt="disgust_september/Publicity_05.jpg"> </p>
+            <p><img src="Publicity_03.JPG" style="width:95% ;max-width:1000px;margin:10px;"> </p>
+            <p><img src="Publicity_04.JPG" style="width:95% ;max-width:1000px;margin:10px;"> </p>
+            <p><img src="Publicity_05.JPG" style="width:95% ;max-width:1000px;margin:10px;"> </p>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1" style="margin-top: 50px;">
             <h1>◆Download</h1>
             <p>&nbsp;</p>
-            <p><a href="https://drive.google.com/drive/folders/0B5ExbUKg_ADma0xuaGVoNmx5bWc" target="_blank">Google</a></p>
+            <p><a href="https://drive.google.com/drive/folders/0B5ExbUKg_ADmNmprNEdpeDd4dDQ" target="_blank">Google</a></p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <h1>◆Cat's note:</h1>
@@ -250,7 +260,7 @@
             <p>&nbsp;</p>
             <p><a href="https://www.facebook.com/ChocolateMacaronCatCat/" target="_blank">CatGakuen Facebook</a></p>
             <p><a href="https://twitter.com/chocolatecatdon" target="_blank">CatGakuen Twitter</a></p>
-            <p><a href="http://chocolatecatcat.web.fc2.com/" target="_blank">CatGakuen Official Website</a></p>
+            <p><a href="../index.html" target="_blank">CatGakuen Official Website</a></p>
             <p>&nbsp;</p>
         </div>
     </div>
