@@ -1,5 +1,5 @@
 <!DOCTYPE>
-
+<html  lang="zh-Hant-TW">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +16,12 @@
     <style type="text/css">
     body {
         //background-color: #000;
-        background: none transparent !important
+        background: none transparent !important ;
+        border: none;
+    }
+    
+    body * {
+        border: none;
     }
     
     #title {
@@ -154,8 +159,11 @@
         SecretClick("#SecretOption_01", "#SecretOption_01_msg");
         SecretClick("#SecretOption_02", "#SecretOption_02_msg");
         SecretClick("#SecretOption_03", "#SecretOption_03_msg");
-
-    });
+        ////移除fc2浮動字
+        $(".adingoFluctOverlay").html("").css("height","0px");
+        $("#unitedblades_div").html("").css("height","0px");
+        $("#ub_overlay").html("").css("height","0px");
+        ////
     </script>
 </head>
 

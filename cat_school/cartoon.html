@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-
+<html  lang="zh-Hant-TW">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,7 +31,7 @@
         position: fixed;
         z-index: 999;
         right: 18px;
-        bottom: 60px;
+        bottom: 70px;
     }
     
     a:link {
@@ -76,10 +76,10 @@
         color: hotpink;
     }
     </style>
-    <!-- 從這裡開始是小工具 -->
     <script type="text/javascript">
-    var amountScrolled = 300;
     $(document).ready(function() {
+        ////回到top
+        var amountScrolled = 300;
         $(window).scroll(function() {
             if ($(window).scrollTop() > amountScrolled) {
                 $('a.back-to-top').fadeIn('slow');
@@ -94,9 +94,13 @@
             }, 700);
             return false;
         });
+        ////移除fc2浮動字
+        $(".adingoFluctOverlay").html("").css("height","0px");
+        $("#unitedblades_div").html("").css("height","0px");
+        $("#ub_overlay").html("").css("height","0px");
+        ////
     });
     </script>
-    <!-- 小工具結束 -->
 </head>
 
 <body class="container-fluid">
