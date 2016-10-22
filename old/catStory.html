@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style type="text/css">
     body {
-        //background-color: #000;
+        //   background-color: #000;
         background: none transparent !important
     }
     
@@ -60,63 +60,32 @@
         text-align: center;
     }
     
-    #SecretOption {
-        text-align: center;
-    }
-    
-    #SecretOption_01::after {
-        text-align: center;
-        content: url("Templates/SecretOption_01_1.png");
+    #SecretOption_01 > img,
+    #SecretOption_02 > img,
+    #SecretOption_03 > img {
         opacity: 0.5;
-        margin: -50px -50px -50px -50px;
-        overflow: hidden;
     }
     
-    #SecretOption_02::after {
-        text-align: center;
-        content: url("Templates/SecretOption_02_1.png");
-        opacity: 0.5;
-        margin: -50px -50px -50px -50px;
-        overflow: hidden;
-    }
-    
-    #SecretOption_03::after {
-        text-align: center;
-        content: url("Templates/SecretOption_03_1.png");
-        opacity: 0.5;
-        margin: -50px -50px -50px -50px;
-        overflow: hidden;
-    }
-    
-    #SecretOption_01:active::after,
-    #SecretOption_01:focus::after,
-    #SecretOption_01:hover::after {
-        opacity: 1;
-    }
-    
-    #SecretOption_01.active::after {
+    #SecretOption_01 > .active,
+    #SecretOption_01 > img:active,
+    #SecretOption_01 > img:focus,
+    #SecretOption_01 > img:hover {
         opacity: 1;
         content: url("Templates/SecretOption_01_2.png");
     }
     
-    #SecretOption_02:active::after,
-    #SecretOption_02:focus::after,
-    #SecretOption_02:hover::after {
-        opacity: 1;
-    }
-    
-    #SecretOption_02.active::after {
+    #SecretOption_02>.active,
+    #SecretOption_02>img:active,
+    #SecretOption_02>img:focus,
+    #SecretOption_02>img:hover {
         opacity: 1;
         content: url("Templates/SecretOption_02_2.png");
     }
     
-    #SecretOption_03:active::after,
-    #SecretOption_03:focus::after,
-    #SecretOption_03:hover::after {
-        opacity: 1;
-    }
-    
-    #SecretOption_03.active::after {
+    #SecretOption_03>.active,
+    #SecretOption_03>img:active,
+    #SecretOption_03>img:focus,
+    #SecretOption_03>img:hover {
         opacity: 1;
         content: url("Templates/SecretOption_03_2.png");
     }
@@ -143,8 +112,8 @@
     <script type="text/javascript">
     function SecretClick(SecretOption, SecretOption_msg) {
         $(SecretOption).click(function() {
-            $("#SecretOption>a").removeClass('active');
-            $(this).addClass("active");
+            $("#SecretOption>a>img").removeClass('active');
+            $(this).children("img").addClass("active");
             $("#msg>div").css("display", "none");
             $(SecretOption_msg).css("display", "block");
         });
@@ -166,9 +135,9 @@
         <div id="menu" class="row">
             <img class="col-md-3" src="Templates/Secret_04.png" style="top:60px;-moz-transform:scaleX(-1);-webkit-transform:scaleX(-1);-o-transform:scaleX(-1);transform:scaleX(-1);filter:FlipH;">
             <div id="SecretOption" class="col-md-6 text-center">
-                <a id="SecretOption_01" class="col-md-4 active"></a>
-                <a id="SecretOption_02" class="col-md-4 "> </a>
-                <a id="SecretOption_03" class="col-md-4 "></a>
+                <a id="SecretOption_01"><img class="col-md-4 active" src="Templates/SecretOption_01_1.png"></a>
+                <a id="SecretOption_02"><img class="col-md-4 " src="Templates/SecretOption_02_1.png"></a>
+                <a id="SecretOption_03"><img class="col-md-4 " src="Templates/SecretOption_03_1.png"></a>
             </div>
             <img class="col-md-3 " src="Templates/Secret_04.png" style="top:60px">
         </div>
