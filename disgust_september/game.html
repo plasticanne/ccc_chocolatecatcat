@@ -1,0 +1,299 @@
+﻿<!--**@auther plastic.anne@gmail.com **-->
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="icon.png" rel="SHORTCUT ICON">
+    <meta name="author" content="plastic anne">
+    <title>厭惡的九月</title>
+    <meta name="title" content="厭惡的九月">
+    <meta property="og:title" content="厭惡的九月">
+    <meta name="description" content="製作團隊：貓咪學園\ 遊戲類型：文字冒險\ 遊戲時間：約十到二十分鐘\ 遊戲結局：一個真結局\ 使用程式：RPG Maker MV\ ">
+    <meta property="og:description" content="製作團隊：貓咪學園\ 遊戲類型：文字冒險\ 遊戲時間：約十到二十分鐘\ 遊戲結局：一個真結局\ 使用程式：RPG Maker MV\ ">
+    <meta name="twitter:description" content="製作團隊：貓咪學園\ 遊戲類型：文字冒險\ 遊戲時間：約十到二十分鐘\ 遊戲結局：一個真結局\ 使用程式：RPG Maker MV\ ">
+    <meta itemprop="description" content="製作團隊：貓咪學園\ 遊戲類型：文字冒險\ 遊戲時間：約十到二十分鐘\ 遊戲結局：一個真結局\ 使用程式：RPG Maker MV\ ">
+    <link rel="image_src" href="icon.png">
+    <link itemprop="image" href="icon.png">
+    <meta property="og:image" content="icon.png">
+    <meta name=" twitter:image" content="icon.png">
+    <meta itemprop="image" content="icon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+    a:link {
+        color: #F9C;
+    }
+    
+    a:visited {
+        color: #FCF;
+    }
+    
+    body {
+        overflow: hidden;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        font-family: Microsoft JhengHei;
+    }
+    
+    body::-webkit-scrollbar {
+        width: 0px;
+    }
+    
+    .container-fluid,
+    .col-sm-12 {
+        margin: 0px;
+    }
+    
+    .row {
+        position: relative;
+    }
+    
+    #gamebox {
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: block;
+        position: relative;
+        text-align: center;
+        border-style: none;
+        overflow: hidden;
+    }
+    
+    #play {
+        background-repeat: no-repeat;
+        background-image: url('../Templates/Cat_PLAY.png');
+        background-size: contain;
+        background-position: center;
+        width: 25%;
+        height: 25%;
+        z-index: 100;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        // border-style: none;
+        border: white 3px solid;
+        border-radius: 20px;
+    }
+    
+    #open:hover {
+        cursor: pointer;
+    }
+    
+    #play:hover {
+        background-color: black;
+        cursor: pointer;
+        filter: invert(1);
+    }
+    
+    #gameiframe {
+        display: none;
+        position: absolute;
+        margin: 0;
+        top: 0;
+        left: 0;
+        border-style: none;
+        transform-origin: 0 0;
+    }
+    
+    #toolbox {
+        z-index: 200;
+        background-color: black;
+        display: block;
+        position: absolute;
+        border-style: none;
+        width: 1;
+        height: 50px;
+        overflow: hidden;
+        top: 0px;
+        left: 0;
+        //border:white 3px solid;
+        //border-radius: 10px;
+    }
+    
+    #open {
+        background: url('../Templates/Moon_Keyboard_01.png');
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        z-index: 999;
+        left: 20px;
+        top: 0px;
+    }
+    
+    #FB {
+        position: absolute;
+        z-index: 999;
+        left: 70px;
+        top: 15px;
+    }
+    
+    #keyboard {
+        position: relative;
+        top: 50px;
+        left: 0px;
+        height: 240px;
+        width: 650px;
+    }
+    </style>
+    <script type="text/javascript">
+    //設遊戲網址
+    var game_url = "http://www.chimakier.com/games/chocolatecatcat/Cat_Box/Disgust_September/index.html";
+    //設遊戲原生寬度
+    var game_o_w = 1280;
+    //設遊戲原生高
+    var game_o_h = 720;
+    //設遊戲封頁，寬高需與遊戲相同
+    var page_url = "Beginning.png";
+
+    ////machine info
+    var supportTouch = !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
+    ////main
+    function setGame() {
+        $("#gamebox").css("background-image", "url(" + page_url + ")");
+        $("#gameiframe").css({
+            "width": game_o_w,
+            "height": game_o_h
+        });
+
+    }
+
+    function setSize() {
+        var w = $(window).width();
+        var h = $(window).height();
+        var w_h_rate = game_o_w / game_o_h;
+        var fullh = parseFloat(h) - 50;
+        var scalew = "scale(" + parseFloat(w) / game_o_w + ")";
+        var scaleh = "scale(" + fullh / game_o_h + ")";
+        var fullrate = parseFloat(w) / fullh;
+        //if (scalew <= 1280) {
+        if (fullrate <= w_h_rate) {
+            $("#gameiframe").css("transform", scalew);
+            //   $("#gamebox").css("background-size", scalew+" "+scalew);
+            $("#gamebox").css("width", w)
+                .css("height", parseFloat(w) * (1 / w_h_rate) + "px")
+                .css("left", "0")
+                .css("margin-left", "0");
+        } else {
+            $("#gameiframe").css("transform", scaleh);
+            //    $("#gamebox").css("background-size", scaleh+" "+scaleh);
+            $("#gamebox").css("width", fullh * w_h_rate + "px")
+                .css("height", fullh + "px")
+                .css("left", "50%")
+                .css("margin-left", -1 * fullh * w_h_rate / 2 + "px");
+        }
+        // } else {
+        //   $("#gameiframe").css("transform", "scale(1)");
+        // $("#gamebox").css("width", w)
+        //   .css("height", parseFloat(w) * 9 / 16 + "px")
+        // .css("left", "50%")
+        //        .css("margin-left", -1 * 1280 / 2 + "px");
+        // }
+    };
+
+    function optoolbox() {
+        var toolbox = $("#toolbox")
+        if (toolbox.css("top") == "0px") {
+            toolbox.animate({
+                "height": "300px",
+                "top": "-250px"
+            });
+            $("#open").css("background", "url('../Templates/Moon_Keyboard_03.gif')");
+        } else {
+            toolbox.animate({
+                "height": "50px",
+                "top": "0px"
+            });
+            $("#open").css("background", "url('../Templates/Moon_Keyboard_01.png')");
+        }
+    };
+
+    $(document).ready(function() {
+        ////移除fc2浮動字
+        $(".adingoFluctOverlay").html("").css("height", "0px");
+        $("#unitedblades_div").html("").css("height", "0px");
+        $("#ub_overlay").html("").css("height", "0px");
+        ////遊戲視窗設定
+        setGame();
+        setSize();
+        $(window).resize(function() {
+            setSize();
+        });
+        ////play按鈕
+        $("#play").click(function() {
+            $("#gameiframe").attr("src", game_url);
+            $(this).css("display", "none");
+            $("#gameiframe").css("display", "block");
+            var toolbox = $("#toolbox")
+            if (toolbox.css("top") == "-250px") {
+                toolbox.animate({
+                    "height": "50px",
+                    "top": "0px"
+                });
+                $("#open").css("background", "url('../Templates/Moon_Keyboard_01.png')");
+            };
+        });
+        ////菜單按鈕
+        if (!supportTouch) {
+            setTimeout(optoolbox, 1000);
+            $("#open").click(optoolbox);
+        }else{
+            $("#open").css("display", "none");
+        };
+    });
+    </script>
+</head>
+
+<body class="container-fluid" scrolling="no">
+    <div class="row">
+        <div id="gamebox" class="col-sm-12 text-center" align="center">
+            <div id="play"></div>
+            <iframe align="center" id="gameiframe" scrolling="no"></iframe>
+        </div>
+    </div>
+    <div class="row" style="height: 50px">
+        <div id="toolbox" class="col-sm-12 col-xs-12">
+            <div id="open" class="col-sm-1 col-xs-1"></div>
+            <div id="FB" class="col-sm-1 col-xs-1">
+                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FChocolateMacaronCatCat%2F%3Fhc_ref%3DSEARCH&width=158&layout=button_count&action=recommend&size=large&show_faces=false&share=true&height=46&appId" width="158" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            </div>
+            <div style="position: absolute; top:0px; left:0px">
+                <img src="../Templates/Cat_Hidding_Me_04.png" style="position: absolute; top:35px; left:10px  ">
+                <img src="../Templates/Cat_Hidding_Me_01.png" style="position: absolute; top:75px; left:11px">
+            </div>
+            <!--
+            <p class="col-sm-1 col-xs-1" style="position: relative; top:20px; left:0px">
+                <br> ↑
+                <br>點
+                <br>我
+                <br>隱
+                <br>藏
+            </p>
+            -->
+            <img id="keyboard" class="col-sm-7 col-xs-7" src="../Templates/Moon_Keyboard_02.png" style="position: relative;left:55px">
+            <p class="col-sm-4 col-xs-4" style="position: relative; top:32px; left:60px">
+                <br> 遊戲名稱：厭惡的九月
+                <br> 製作團隊：
+                <a href="../index.html" target="_blank">貓咪學園</a>
+                <br> 遊戲類型：文字冒險
+                <br> 遊戲時間：約十到二十分鐘
+                <br> 遊戲結局：一個真結局
+                <br> 使用程式：RPG Maker MV
+                <br> 製作成員：
+                <a href="http://home.gamer.com.tw/homeindex.php?owner=wer227942914" target="_blank">小喵</a>、<a href="http://home.gamer.com.tw/homeindex.php?owner=tobychou0128" target="_blank">Chobo</a>、<a href="http://www.pixiv.net/member.php?id=9069934" target="_blank">天川白</a>、<a href="http://home.gamer.com.tw/homeindex.php?owner=ueson1000" target="_blank">Tsun Tsai</a>、<a href="http://www.chimakier.com/" target="_blank">粽子</a>
+                <br> 主機空間由<a href="http://www.chimakier.com/" target="_blank">MAKER製造機</a>贊助提供
+            </p>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

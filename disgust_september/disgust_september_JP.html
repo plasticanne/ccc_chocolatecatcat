@@ -1,0 +1,284 @@
+﻿<!--**@auther plastic.anne@gmail.com **-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="icon.png" rel="SHORTCUT ICON">
+    <meta name="author" content="plastic anne">
+    <title>厭惡の九月</title>
+    <meta name="title" content="厭惡の九月">
+    <meta property="og:title" content="厭惡の九月">
+    <meta name="description" content="厭惡の九月">
+    <meta property="og:description" content="厭惡の九月">
+    <meta name="twitter:description" content="厭惡の九月">
+    <meta itemprop="description" content="厭惡の九月">
+    <link rel="image_src" href="icon.png">
+    <link itemprop="image" href="icon.png">
+    <meta property="og:image" content="icon.png">
+    <meta name="twitter:image" content="icon.png">
+    <meta itemprop="image" content="icon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+    a.back-to-top {
+        display: none;
+        width: 70px;
+        height: 70px;
+        text-indent: -9999px;
+        position: fixed;
+        z-index: 999;
+        right: 20px;
+        bottom: 20px;
+        background: url("../Templates/Moon_Cat.png") no-repeat center 43%;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        border-radius: 30px;
+    }
+    
+    #FB {
+        position: fixed;
+        z-index: 999;
+        right: 18px;
+        bottom: 70px;
+    }
+    
+    a:link {
+        color: #F9C;
+    }
+    
+    a:visited {
+        color: #FCF;
+    }
+    
+    body {
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        font-size: 24px;
+        font-family: Microsoft JhengHei;
+    }
+    
+    .container-fluid {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    
+    nav {
+        height: 24px;
+        color: black;
+        border-style: solid;
+        background-color: pink;
+        font-weight: bold;
+    }
+    
+    * a:link {
+        color: white;
+        text-decoration: underline;
+    }
+    
+    * a:hover {
+        color: pink;
+    }
+    
+    * a:visited {
+        color: hotpink;
+    }
+    
+    #language {
+        margin-left: 0px;
+        margin-right: 0px;
+        position: absolute;
+        right: 40px;
+        top: 20px;
+    }
+    
+    #language * {
+        font-family: Microsoft JhengHei;
+    }
+    
+    #language>ul>li {
+        display: inline-block;
+    }
+    
+    #language>ul>li>a>button,
+    #language>ul>li>a>button:visited #language>ul>li>a>button:link {
+        color: white;
+        background-color: black;
+        border: 0px solid;
+        border-radius: 10px;
+        padding: 10px 10px 10px 10px;
+        font-family: Microsoft JhengHei;
+    }
+    
+    #language>ul>li>a>.active,
+    #language>ul>li>a>button:active,
+    #language>ul>li>a>button:focus,
+    #language>ul>li>a>button:hover {
+        color: black;
+        background-color: white;
+        border: 0px solid;
+        border-radius: 10px;
+        padding: 10px 10px 10px 10px;
+        font-family: Microsoft JhengHei;
+    }
+    </style>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        ////回到top
+        var amountScrolled = 300;
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > amountScrolled) {
+                $('a.back-to-top').fadeIn('slow');
+            } else {
+                $('a.back-to-top').fadeOut('slow');
+            }
+        });
+
+        $('a.back-to-top').click(function() {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 700);
+            return false;
+        });
+        ////移除fc2浮動字
+        $(".adingoFluctOverlay").html("").css("height","0px");
+        $("#unitedblades_div").html("").css("height","0px");
+        $("#ub_overlay").html("").css("height","0px");
+        ////
+    });
+    </script>
+</head>
+
+<body class="container-fluid">
+    <div id="language">
+        <ul>
+            <li>
+                <a href="disgust_september.html">
+                    <button>中文</button>
+                </a>
+            </li>
+            <li>
+                <a href="disgust_september_US.html">
+                    <button>English</button>
+                </a>
+            </li>
+            <li>
+                <a href="javascript: void(0)">
+                    <button class="active">日本語</button>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="FB">
+        <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FChocolateMacaronCatCat%2F&width=52&layout=box_count&action=like&show_faces=false&share=true&height=65&appId" width="65" height="90" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+    </div>
+    <div class="row">
+        <div class="col-sm-12" style="margin-top: 150px;">
+            <p align="center">いくつかのヘルプ，音が聞こえません。 </p>
+            <p align="center">いくつかの叫び，誰が見ることができません。 </p>
+            <p align="center">物語は偽である場合でも，手を差し伸べることを試みることができます，暗闇の中で救い主ができの人。 </p>
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <p>
+                <br>
+                <a href="https://www.facebook.com/ChocolateMacaronCatCat/" target="_blank"><img src="Point_me.gif" style="width:95% ;max-width:600px ;margin:10px;" alt="點我點我"></a>
+            </p>
+            <a href="#" class="back-to-top"></a>
+            <!-- 這行開始回到top的tag -->
+        </div>
+        <div class="col-sm-10 col-sm-offset-1" style="margin-top: 50px;">
+            <h1>◆ゲームの説明 </h1>
+            <p>&nbsp;</p>
+            <p>ずっと前に，一つの不幸に女の子。 </p>
+            <p>彼女は幸せな家庭を持っています。 </p>
+            <p>彼女はまた、ママとパパの非常に好きです。 </p>
+            <p>しかし、彼女の父と母は、お互いを好きではありません。 </p>
+            <p>&nbsp;</p>
+            <p>愛のないような家族の中で，彼は女の子を無視されます。 </p>
+            <p>最も重要な家族の喪失後，自分たちの生活を終了すると判断。 </p>
+            <p>主人公予期せぬ到着，女の子のを変更する機会を持ちます。 </p>
+            <p>その前に女の子の行動を防止するための方法を見つけるために！ </p>
+            <p>とにかく，これが唯一の目的であります。 </p>
+            <p>&nbsp;</p>
+            <p><img src="Publicity_01.jpg" style="width:95% ;max-width:1290px ;margin:10px;" alt="猫ガクエン"> </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1" style="margin-top: 50px;">
+            <h1>◆ゲーム情報 </h1>
+            <p>&nbsp;</p>
+            <p>ゲーム名前：厭惡の九月
+                <br> 制作チーム：
+                <a href="../index.html" target="_blank">猫ガクエン</a>
+                <br> ゲームタイプ：文字冒險
+                <br> ゲームタイム：10分~20分
+                <br> ゲームエンディング：一個真結局
+                <br> プログラム：RPG Maker MV
+                <br> 制作メンバー：
+                <a href="http://home.gamer.com.tw/homeindex.php?owner=wer227942914" target="_blank">小喵</a>、<a href="http://home.gamer.com.tw/homeindex.php?owner=tobychou0128" target="_blank">Chobo</a>、<a href="http://www.pixiv.net/member.php?id=9069934" target="_blank">天川白</a>、<a href="http://home.gamer.com.tw/homeindex.php?owner=ueson1000" target="_blank">Tsun Tsai</a>、<a href="http://www.chimakier.com/" target="_blank">粽子</a></p>
+            <p>&nbsp;</p>
+            <p><img src="Publicity_05.JPG" style="width:95% ;max-width:985px;margin:10px;"> </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1" style="margin-top: 50px;">
+            <h1>◆ゲーム画面 </h1>
+            <p>&nbsp;</p>
+            <p><img src="Publicity_04.jpg" style="width:95% ;max-width:1290px;margin:10px;"> </p>
+            <p><img src="Publicity_02.jpg" style="width:95% ;max-width:1290px;margin:10px;"> </p>
+            <p><img src="Publicity_03.jpg" style="width:95% ;max-width:1290px;margin:10px;"> </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1" style="margin-top: 50px;">
+            <h1>◆ゲームのダウンロード</h1>
+            <p>&nbsp;</p>
+            <p>◆すみません、まだ生産のゲーム。</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <h1>◆猫の言葉</h1>
+            <p>&nbsp;</p>
+            <p>促進するためには、ここをクリックして<a href="https://store.line.me/stickershop/author/83081/zh-Hant" target="_blank">ステージ上の猫耳少女</a>。 </p>
+            <p>このマップを公開する理由，Steamの準備のコストを追加しました，特別に細工されました！</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <h1>◆ブックステートメント </h1>
+            <p>&nbsp;</p>
+            <p>ゲームのキャラクターと音楽。
+                <p>これは、元の作者に属します【猫ガクエン】すべての制作チーム。 </p>
+                <p>複製、転載、このゲームの外の使用を禁止します。 </p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <h1>◆ライブ解説 </h1>
+                <p>&nbsp;</p>
+                <p>ライブこのゲームは再び許可を取得する必要はありません。 </p>
+                <p>しかし、私はあなたが通知タイムタイムを生きることを願って，一緒に見にメンバーを招待します。 </p>
+                <p>誰もが生きて歓迎されています，しかし、直接スポイラーをゲーム体験を破壊することを禁止。 </p>
+                <p>このゲームコンテンツ残忍な負の行動や自殺の説明。 </p>
+                <p>このゲームかどうか個人的な裁量の心理的な受け入れに従ってください。 </p>
+                <p>また、ゲームのプロットを真似しないでください，ご不便，ここのチームは非常に残念です。</p>
+                <p>&nbsp;</p>
+                <p>&nbsp; </p>
+                <h1>◆お問い合わせ </h1>
+                <p>&nbsp;</p>
+                <p><a href="https://www.facebook.com/ChocolateMacaronCatCat/" target="_blank">猫ガクエンページ</a></p>
+                <p><a href="https://twitter.com/chocolatecatdon" target="_blank">猫ガクエンツイッター</a></p>
+                <p><a href="../index.html" target="_blank">猫ガクエン公式サイト</a></p>
+                <p>&nbsp;</p>
+        </div>
+    </div>
+    <footer>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p align="center">
+            <br>
+    </footer>
+</body>
+
+</html>
