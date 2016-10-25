@@ -79,7 +79,6 @@
         left: 0;
         margin: auto;
         position: absolute;
-        // border-style: none;
         border: white 3px solid;
         border-radius: 20px;
     }
@@ -111,12 +110,9 @@
         position: absolute;
         border-style: none;
         width: 1;
-        height: 50px;
         overflow: hidden;
         top: 0px;
         left: 0;
-        //border:white 3px solid;
-        //border-radius: 10px;
     }
     
     #open {
@@ -145,71 +141,67 @@
     }
     </style>
     <script type="text/javascript">
-    //設遊戲網址
+    //設遊戲網址 #gamebox #gameiframe
     var game_url = "http://www.chimakier.com/games/chocolatecatcat/Cat_Box/Disgust_September/index.html";
-    //設遊戲原生寬度
+    //設遊戲原生寬度 
     var game_o_w = 1280;
     //設遊戲原生高
     var game_o_h = 720;
     //設遊戲封頁，寬高需與遊戲相同
     var page_url = "Beginning.png";
+    //下方工具列高度 #toolbox
+    var page_tool = 50;
+    //下方工具列向上展開高度
+    var page_tool_move = 250;
+
+
 
     ////machine info
     var supportTouch = !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
     ////main
-    function setGame() {
+    function setPage() {
         $("#gamebox").css("background-image", "url(" + page_url + ")");
         $("#gameiframe").css({
             "width": game_o_w,
             "height": game_o_h
         });
-
+        $("#toolbox").css("height", page_tool + "px");
     }
 
     function setSize() {
         var w = $(window).width();
         var h = $(window).height();
         var w_h_rate = game_o_w / game_o_h;
-        var fullh = parseFloat(h) - 50;
+        var fullh = parseFloat(h) - page_tool;
         var scalew = "scale(" + parseFloat(w) / game_o_w + ")";
         var scaleh = "scale(" + fullh / game_o_h + ")";
         var fullrate = parseFloat(w) / fullh;
-        //if (scalew <= 1280) {
         if (fullrate <= w_h_rate) {
             $("#gameiframe").css("transform", scalew);
-            //   $("#gamebox").css("background-size", scalew+" "+scalew);
             $("#gamebox").css("width", w)
                 .css("height", parseFloat(w) * (1 / w_h_rate) + "px")
                 .css("left", "0")
                 .css("margin-left", "0");
         } else {
             $("#gameiframe").css("transform", scaleh);
-            //    $("#gamebox").css("background-size", scaleh+" "+scaleh);
             $("#gamebox").css("width", fullh * w_h_rate + "px")
                 .css("height", fullh + "px")
                 .css("left", "50%")
                 .css("margin-left", -1 * fullh * w_h_rate / 2 + "px");
         }
-        // } else {
-        //   $("#gameiframe").css("transform", "scale(1)");
-        // $("#gamebox").css("width", w)
-        //   .css("height", parseFloat(w) * 9 / 16 + "px")
-        // .css("left", "50%")
-        //        .css("margin-left", -1 * 1280 / 2 + "px");
-        // }
     };
 
     function optoolbox() {
         var toolbox = $("#toolbox")
         if (toolbox.css("top") == "0px") {
             toolbox.animate({
-                "height": "300px",
-                "top": "-250px"
+                "height": page_tool + page_tool_move + "px",
+                "top": -1 * page_tool_move + "px"
             });
             $("#open").css("background", "url('../Templates/Moon_Keyboard_03.gif')");
         } else {
             toolbox.animate({
-                "height": "50px",
+                "height": page_tool + "px",
                 "top": "0px"
             });
             $("#open").css("background", "url('../Templates/Moon_Keyboard_01.png')");
@@ -222,7 +214,7 @@
         $("#unitedblades_div").html("").css("height", "0px");
         $("#ub_overlay").html("").css("height", "0px");
         ////遊戲視窗設定
-        setGame();
+        setPage();
         setSize();
         $(window).resize(function() {
             setSize();
@@ -232,10 +224,10 @@
             $("#gameiframe").attr("src", game_url);
             $(this).css("display", "none");
             $("#gameiframe").css("display", "block");
-            var toolbox = $("#toolbox")
-            if (toolbox.css("top") == "-250px") {
+            var toolbox = $("#toolbox");
+            if (toolbox.css("top") == -1 * page_tool_move + "px") {
                 toolbox.animate({
-                    "height": "50px",
+                    "height": page_tool + "px",
                     "top": "0px"
                 });
                 $("#open").css("background", "url('../Templates/Moon_Keyboard_01.png')");
@@ -245,8 +237,9 @@
         if (!supportTouch) {
             setTimeout(optoolbox, 1000);
             $("#open").click(optoolbox);
-        }else{
+        } else {
             $("#open").css("display", "none");
+            $("#FB").css("left", "0px");
         };
     });
     </script>
