@@ -79,6 +79,18 @@
         border-radius: 20px;
     }
     
+    #browser_warning {
+        display: none;
+        position: absolute;
+        width: 320px;
+        height: 1px;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+    }
+    
     #open:hover {
         cursor: pointer;
     }
@@ -218,7 +230,7 @@
         });
         ////菜單按鈕
         if (!supportTouch) {
-            setTimeout(optoolbox, 1000);
+            setTimeout(optoolbox, 500);
             $("#open").click(optoolbox);
         } else {
             $("#open").css("display", "none");
@@ -229,6 +241,7 @@
             $("#gameiframe").attr("src", game_url);
             $(this).css("display", "none");
             $("#gameiframe").css("display", "block");
+            setTimeout(function() {$("#browser_warning").css("display", "block")},3000);
             var toolbox = $("#toolbox");
             if (toolbox.css("top") == -1 * page_tool_move + "px") {
                 toolbox.animate({
@@ -246,6 +259,11 @@
     <div class="row">
         <div id="gamebox" class="col-sm-12 text-center" align="center">
             <div id="play"></div>
+            <div id="browser_warning">
+                <p>如果點了play以後無反應
+                    <br>請更換Firefox
+                    <br>或Chrome瀏覽器</p>
+            </div>
             <iframe align="center" id="gameiframe" scrolling="no"></iframe>
         </div>
     </div>
