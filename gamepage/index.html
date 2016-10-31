@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="plastic anne">
+    <title>貓咪學園</title>
+    <meta name="title" content="貓咪學園">
+    <meta property="og:title" content="貓咪學園">
+    <meta name="description" content="做一個貓咪做不到的事">
+    <meta property="og:description" content="做一個貓咪做不到的事">
+    <meta name="twitter:description" content="做一個貓咪做不到的事">
+    <meta itemprop="description" content="做一個貓咪做不到的事">
+    <link rel="image_src" href="Templates/Catteacher.png">
+    <link itemprop="image" href="Templates/Catteacher.png">
+    <meta property="og:image" content="Templates/Catteacher.png">
+    <meta name="twitter:image" content="Templates/Catteacher.png">
+    <meta itemprop="image" content="Templates/Catteacher.png">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- TemplateBeginEditable name="doctitle" -->
+    <!-- TemplateEndEditable -->
+    <!-- TemplateBeginEditable name="head" -->
+    <!-- TemplateEndEditable -->
+    <link href="Templates/Icon.png" rel="SHORTCUT ICON">
+    <meta property="fb:app_id" content="745098148964766" />
+    <meta property="fb:admins" content="100009744162325" />
+    <meta property="fb:admins" content="100005441779204" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+    a:link {
+        color: #F9C;
+    }
+    
+    a:visited {
+        color: #FCF;
+    }
+    body {
+      min-width: 300px;
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        background-color: #000;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: none;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        font-family: Microsoft JhengHei;
+    }
+    
+    body::-webkit-scrollbar {
+        width: 0px;
+    }
+    
+    body * {
+        border: none;
+    }
+    
+    #open {
+        background: url('img/Opened_01.png');
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 20px;
+        top: 10px;
+    }
+    
+    #open2 {
+        background: url('../Templates/sns_game.png');
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 90px;
+        top: 10px;
+    }
+    
+    #open.active,
+    #open:active,
+    #open:focus,
+    #open:hover {
+        background: url('img/Opened_02.gif');
+    }
+    
+    #doc {
+        position: absolute;
+        z-index: 201;
+        top: 60px;
+        left: 0px;
+        width: 240px;
+        height: 280px;
+        display: none;
+    }
+    
+    #doc>a>img {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+    }
+    </style>
+    <script type="text/javascript">
+    ////main
+    $(window).load(function() {
+        ////菜單動畫
+        $('#open').click(function() {
+            if ($('#doc').css("display") == 'block') {
+                $(this).removeClass('active');
+            } else {
+                $(this).addClass("active");
+            };
+            $('#doc').slideToggle();
+        });
+        ////移除fc2浮動字
+        $(".adingoFluctOverlay").html("").css("height", "0px");
+        $("#unitedblades_div").html("").css("height", "0px");
+        $("#ub_overlay").html("").css("height", "0px");
+        ////
+    });
+    </script>
+</head>
+
+<body>
+    <div id="fb-root"></div>
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '745098148964766',
+            xfbml: true,
+            version: 'v2.8'
+        });
+    };
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8&appId=745098148964766";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div style="position: fixed;">
+        <div id="doc">
+            <img src="img/Catbasket_01.png" style="position: absolute; top: 0px; width: 240px; height: 260px; ">
+            <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+                <img src="img/Moon_01.png" style="left: 14px; top: 30px;">
+            </a>
+            <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+                <img id="m02" src="img/Moon_02.png" style="left: 68px; top: 30px;">
+            </a>
+            <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+                <img id="m03" src="img/Moon_03.png" style="left: 122px; top: 30px;">
+            </a>
+            <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+                <img id="m04" src="img/Moon_04.png" style="left: 175px; top: 30px;">
+            </a>
+            <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+                <img id="m05" src="img/Moon_05.png" style="left: 14px; top: 75px;">
+            </a>
+            <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+                <img id="m06" src="img/Moon_06.png" style="left: 68px; top: 75px;">
+            </a>
+            <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+                <img id="m07" src="img/Moon_07.png" style="left: 122px; top: 75px;">
+            </a>
+            <a href="../silent_august/silent_august.html" target="_blank">
+                <img id="m08" src="img/Moon_Book.png" style="left: 175px; top: 75px;">
+            </a>
+            <a href="../disgust_september/disgust_september.html" target="_blank">
+                <img id="m09" src="img/Moon_Book.png" style="left: 14px; top: 120px;">
+            </a>
+            <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+                <img id="m10" src="img/Moon_10.png" style="left: 68px; top: 120px;">
+            </a>
+            <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+                <img id="m11" src="img/Moon_11.png" style="left: 122px; top: 120px;">
+            </a>
+            <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+                <img id="m12" src="img/Moon_12.png" style="left: 175px; top: 120px;">
+            </a>
+            <a href="../cat_school/cat_school.html" target="_blank">
+                <img id="mBo" src="img/Moon_Book.png" style="left: 40px; top: 165px;">
+            </a>
+            <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+                <img id="mPu" src="img/Moon_Purple.png" style="left: 95px; top: 165px;">
+            </a>
+            <a href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
+                <img id="mPu" src="img/Moon_Purple2.png" style="left: 150px; top: 165px;">
+            </a>
+        </div>
+        <div style="width: 100%; height: 70px; background: #C00; position: relative;">
+            <div id="open"></div>
+            <a href='../'>
+                <div id="open2"></div>
+            </a>
+            <img src="../Templates/B001.png" style="width: 100%; height: 70px">
+            <a target="_blank" ; href='https://twitter.com/chocolatecatdon'>
+                <img src="../Templates/sns_twitter.png " style="width: 50px; height: 50px; position: absolute; right: 20px; top: 10px;">
+            </a>
+            <a target="_blank" ; href='https://www.facebook.com/ChocolateMacaronCatCat/'>
+                <img src="../Templates/sns_facebook.png" width="50" height="50" id="a01" style="width: 50px; height: 50px; position: absolute; right: 90px; top: 10px;" border="0">
+            </a>
+        </div>
+    </div>
+<div class="container-fluid">
+  <div class="row">
+    <div id="" class="col-sm-12">
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+</body>
+
+</html>

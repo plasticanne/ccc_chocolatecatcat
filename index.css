@@ -1,0 +1,347 @@
+@font-face {
+    font-family: Connie;
+    src: url(Templates/Connie-Regular.ttf);
+}
+
+#loading {
+    display: block;
+    height: 100vh;
+    width: 100vh;
+    position: fixed;
+    z-index: 1000;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align: baseline;
+}
+
+h1 {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 30px;
+}
+
+#loading>h1 {
+    opacity: 0.5;
+    margin-top: 40vh;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 1280px;
+    margin: 0px;
+}
+
+.glyphicon-refresh-animate {
+    -webkit-animation: loading .7s infinite linear;
+    animation: loading .7s infinite linear;
+}
+
+@-webkit-keyframes loading {
+    from {
+        -webkit-transform: scale(1) rotate(0deg);
+        transform: scale(1) rotate(0deg);
+    }
+    to {
+        -webkit-transform: scale(1) rotate(360deg);
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+@keyframes loading {
+    from {
+        -webkit-transform: scale(1) rotate(0deg);
+        transform: scale(1) rotate(0deg);
+    }
+    to {
+        -webkit-transform: scale(1) rotate(360deg);
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+a:link {
+    color: #F9C;
+}
+
+a:visited {
+    color: #FCF;
+}
+
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    background-color: #000;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: none;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: Microsoft JhengHei;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+body * {
+    border: none;
+}
+
+#catStory {
+    top: 0;
+    position: fixed;
+    z-index: 300;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#exit {
+    z-index: 306;
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    top: 25px;
+    right: 30px;
+}
+
+#catStoryBack {
+    position: fixed;
+    z-index: 205;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    background-color: #000;
+    border-style: none;
+}
+
+#catStoryiframe {
+    position: fixed;
+    z-index: 305;
+    width: 100%;
+    height: 100%;
+    display: none;
+    border-style: none;
+}
+
+#catStoryBox {
+    position: fixed;
+    z-index: 305;
+    width: 100%;
+    text-align: center;
+    border-style: none;
+}
+
+#quest {
+    width: 600px;
+    height: 200px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#yes,
+#no {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#menu {
+    z-index: 200;
+    position: fixed;
+    left: 28px;
+    top: 30px;
+}
+
+#menu>a {
+    position: relative;
+    margin-right: 0px;
+    z-index: 500;
+}
+
+#menu>a>img {
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    border: white 1px solid;
+    border-radius: 5px;
+}
+
+#toStory,
+#top {
+    z-index: 495;
+    opacity: 0;
+}
+
+#audiomsg {
+    z-index: 500;
+    width: 320px;
+    height: auto;
+    position: fixed;
+    left: 30px;
+    top: 70px;
+    display: none;
+    overflow: hidden;
+    border: white 0px solid;
+    border-radius: 5px
+}
+
+#yes:hover,
+#no:hover,
+#exit:hover,
+#menu>a:hover,
+#footbtn:hover {
+    cursor: pointer;
+}
+
+#videofoot {
+    z-index: 10;
+    width: 100%;
+    height: 150px;
+    background: black;
+    position: relative;
+    text-align: center;
+}
+
+#videofoot>span {
+    margin-top: 50px;
+    width: 100%;
+}
+
+#videofoot>span>a {
+    top: 0px;
+    width: 40px;
+    height: 40px;
+    margin-left: 0%;
+    margin-right: 0%;
+    position: relative;
+    opacity: 0;
+}
+
+#videofoot>span>a>img {
+    width: 40px;
+    height: 40px;
+}
+
+#footbtn {
+    width: 284px;
+    height: 66px;
+    position: absolute;
+    right: 0;
+    top: 20px;
+    left: 0;
+    margin: auto;
+    padding: -10px;
+    overflow: hidden;
+}
+
+#footbtn>img {
+    top: -10px;
+    left: 0px;
+    position: relative;
+}
+
+#footbtn:hover {
+    border: none;
+    border-radius: 20px;
+    background-color: black;
+    cursor: pointer;
+    filter: invert(1);
+}
+
+#gamepost * {
+    margin: 0;
+    padding: 0;
+}
+
+#gamepost {
+    z-index: 11;
+    position: relative;
+    background-color: white;
+    color: white;
+    padding-top: 50px;
+    padding-bottom: 200px;
+    overflow: hidden;
+}
+
+#gamepost>div {
+    z-index: 30;
+    position: relative;
+    box-shadow: 0 0 30px 0px black inset, 0 0 30px 0px black
+}
+
+#gamepost>div>div {
+    background-color: black;
+    z-index: 18;
+    position: relative;
+    margin-top: 0px;
+}
+
+#gamepost>div>div>div {
+    position: absolute;
+    z-index: 1;
+    color: white;
+    top: 15%;
+    opacity: 0;
+    transform: scale(1);
+    text-shadow: 0px 0px white;
+}
+
+#gamepost>div>div>div>p {
+    font-size: 30px;
+}
+
+#gamepost>div>div>div>h1 {
+    font-size: 46px;
+}
+
+#gamepost>div>div>a {
+    position: relative;
+    z-index: 20;
+}
+
+#gamepost>div>div>a>img {
+    z-index: 19;
+    position: relative;
+    width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+    #quest {
+        width: 90%;
+        margin-top: 8%;
+        margin-bottom: 5%;
+    }
+    #yes,
+    #no {
+        width: 50%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
+@media all and (-ms-high-contrast:none),
+(min-width: 0\0) {
+    #clickArea {
+        background-color: black;
+        opacity: 0;
+    }
+}
