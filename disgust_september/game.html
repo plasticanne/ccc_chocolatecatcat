@@ -21,6 +21,9 @@
     <meta property="og:image" content="icon.png">
     <meta name=" twitter:image" content="icon.png">
     <meta itemprop="image" content="icon.png">
+    <meta property="fb:app_id" content="583826328471729" />
+    <meta property="fb:admins" content="100009744162325" />
+    <meta property="fb:admins" content="100005441779204" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -91,7 +94,9 @@
         margin: auto;
     }
     
-    #open:hover {
+    #cltoolbtn:hover,
+    #keybtn:hover,
+    #postbtn:hover {
         cursor: pointer;
     }
     
@@ -124,8 +129,8 @@
         left: 0;
     }
     
-    #open {
-        background: url('../Templates/Moon_Keyboard_01.png');
+    #keybtn {
+        background: url('../Templates/Moon_Keyboard_01_1.png');
         width: 50px;
         height: 50px;
         position: absolute;
@@ -134,25 +139,43 @@
         top: 0px;
     }
     
-    #FB {
+    #keybtn.active {
+        background: url('../Templates/Moon_Keyboard_01_2.png')
+    }
+    
+    #postbtn {
+        background: url('../Templates/Moon_Dialogue_1.png');
+        width: 50px;
+        height: 50px;
         position: absolute;
         z-index: 999;
-        left: 70px;
+        left: 80px;
+        top: 0px;
+    }
+    
+    #postbtn.active {
+        background: url('../Templates/Moon_Dialogue_2.png')
+    }
+    
+    #FBshare {
+        position: absolute;
+        z-index: 999;
+        left: 130px;
         top: 15px;
     }
     
-    #keyboard {
-        position: relative;
-        top: 50px;
-        left: 0px;
-        height: 240px;
-        width: 650px;
+    #keymsg {
+        display: none;
+    }
+    
+    #postmsg {
+        display: none;
     }
     </style>
     <script type="text/javascript">
-    //設遊戲網址 #gamebox #gameiframe
+    //設遊戲網址
     var game_url = "http://www.chimakier.com/games/chocolatecatcat/Cat_Box/Disgust_September/index.html";
-    //設遊戲原生寬度 
+    //設遊戲原生寬度
     var game_o_w = 1280;
     //設遊戲原生高
     var game_o_h = 720;
@@ -167,16 +190,17 @@
 
     ////machine info
     var supportTouch = !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
-
     ////main
     function setPage() {
-        $("#toolbox").css("height", page_tool + "px");
         $("#gamebox").css("background-image", "url(" + page_url + ")");
         $("#gameiframe").css({
             "width": game_o_w,
             "height": game_o_h
         });
+        $("#toolbox").css("height", page_tool + "px");
     }
+
+
 
     function setSize() {
         var w = $(window).width();
@@ -201,22 +225,41 @@
         }
     };
 
-    function optoolbox() {
-        var toolbox = $("#toolbox")
+    function ctrltoolbox() {
+        var toolbox = $("#toolbox");
         if (toolbox.css("top") == "0px") {
             toolbox.animate({
                 "height": page_tool + page_tool_move + "px",
                 "top": -1 * page_tool_move + "px"
             });
-            $("#open").css("background", "url('../Templates/Moon_Keyboard_03.gif')");
+            $("#keybtn,#postbtn").removeClass('closemenu');
         } else {
             toolbox.animate({
                 "height": page_tool + "px",
                 "top": "0px"
             });
-            $("#open").css("background", "url('../Templates/Moon_Keyboard_01.png')");
+            $("#keybtn,#postbtn").addClass("closemenu");
+            $("#keybtn,#postbtn").removeClass("active");
         }
     };
+
+    function actbtn(btn, msg) {
+        $("#keybtn,#postbtn").removeClass('active');
+        $(btn).addClass("active");
+        $("#keymsg,#postmsg").css("display", "none");
+        $(msg).css("display", "block");
+    };
+
+    function menubtn(btn, msg) {
+        if ($(btn).attr("class").match("active") != null || $(btn).attr("class").match("closemenu") != null) {
+            actbtn(btn, msg);
+            ctrltoolbox();
+        } else {
+            actbtn(btn, msg);
+        }
+    };
+
+
     $(document).ready(function() {
         ////移除fc2浮動字
         $(".adingoFluctOverlay").html("").css("height", "0px");
@@ -230,10 +273,19 @@
         });
         ////菜單按鈕
         if (!supportTouch) {
-            setTimeout(optoolbox, 500);
-            $("#open").click(optoolbox);
+            actbtn("#keybtn", "#keymsg");
+            setTimeout(ctrltoolbox(), 500);
+            $("#keybtn").click(function() {
+                menubtn("#keybtn", "#keymsg");
+            });
+            $("#postbtn").click(function() {
+                menubtn("#postbtn", "#postmsg");
+            });
+            $("#cltoolbtn").click(function() {
+                ctrltoolbox();
+            });
         } else {
-            $("#open").css("display", "none");
+            $("#keybtn,#postbtn").css("display", "none");
             $("#FB").css("left", "0px");
         };
         ////play按鈕
@@ -241,21 +293,43 @@
             $("#gameiframe").attr("src", game_url);
             $(this).css("display", "none");
             $("#gameiframe").css("display", "block");
-            setTimeout(function() {$("#browser_warning").css("display", "block")},3000);
+            setTimeout(function() {
+                $("#browser_warning").css("display", "block")
+            }, 3000);
             var toolbox = $("#toolbox");
             if (toolbox.css("top") == -1 * page_tool_move + "px") {
                 toolbox.animate({
                     "height": page_tool + "px",
                     "top": "0px"
                 });
-                $("#open").css("background", "url('../Templates/Moon_Keyboard_01.png')");
+                ctrltoolbox();
             };
         });
+
+        ////
     });
     </script>
 </head>
 
 <body class="container-fluid" scrolling="no">
+    <div id="fb-root"></div>
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '583826328471729',
+            xfbml: true,
+            version: 'v2.8'
+        });
+    };
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8&appId=583826328471729";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
     <div class="row">
         <div id="gamebox" class="col-sm-12 text-center" align="center">
             <div id="play"></div>
@@ -269,38 +343,39 @@
     </div>
     <div class="row" style="height: 50px">
         <div id="toolbox" class="col-sm-12 col-xs-12">
-            <div id="open" class="col-sm-1 col-xs-1"></div>
-            <div id="FB" class="col-sm-1 col-xs-1">
-                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FChocolateMacaronCatCat%2F%3Fhc_ref%3DSEARCH&width=158&layout=button_count&action=recommend&size=large&show_faces=false&share=true&height=46&appId" width="158" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            <div id="btn">
+                <div id="keybtn" class="col-sm-1 col-xs-1 closemenu "></div>
+                <div id="postbtn" class="col-sm-1 col-xs-1 closemenu "></div>
+                <div id="FBshare" class="col-sm-1 col-xs-1">
+                    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FChocolateMacaronCatCat%2F%3Fhc_ref%3DSEARCH&width=158&layout=button_count&action=recommend&size=large&show_faces=false&share=true&height=46&appId" width="158" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                </div>
             </div>
-            <div style="position: absolute; top:0px; left:0px">
-                <img src="../Templates/Cat_Hidding_Me_04.png" style="position: absolute; top:35px; left:10px  ">
-                <img src="../Templates/Cat_Hidding_Me_01.png" style="position: absolute; top:75px; left:11px">
+            <div id="keymsg" class="col-sm-11 col-xs-11">
+                <img id="keyboard" class="col-sm-7 col-xs-7" src="../Templates/Moon_Keyboard_Description.png" style="position: relative;left:39px;top: 55px;height: 240px;width: 650px;">
+                <p class="col-sm-4 col-xs-4" style="position: relative; top:35px; left:44px">
+                    <br> 遊戲名稱：厭惡的九月
+                    <br> 製作團隊：
+                    <a href="../index.html" target="_blank">貓咪學園</a>
+                    <br> 遊戲類型：文字冒險
+                    <br> 遊戲時間：約十到二十分鐘
+                    <br> 遊戲結局：一個真結局
+                    <br> 使用程式：RPG Maker MV
+                    <br> 製作成員：
+                    <a href="http://home.gamer.com.tw/homeindex.php?owner=wer227942914" target="_blank">小喵</a>、<a href="http://home.gamer.com.tw/homeindex.php?owner=tobychou0128" target="_blank">Chobo</a>、<a href="http://www.pixiv.net/member.php?id=9069934" target="_blank">天川白</a>、<a href="http://home.gamer.com.tw/homeindex.php?owner=ueson1000" target="_blank">Tsun Tsai</a>、<a href="http://www.chimakier.com/" target="_blank">粽子</a>
+                    <br> 主機空間由<a href="http://www.chimakier.com/" target="_blank">MAKER製造機</a>贊助提供
+                </p>
             </div>
-            <!--
-            <p class="col-sm-1 col-xs-1" style="position: relative; top:20px; left:0px">
-                <br> ↑
-                <br>點
-                <br>我
-                <br>隱
-                <br>藏
-            </p>
-            -->
-            <img id="keyboard" class="col-sm-7 col-xs-7" src="../Templates/Moon_Keyboard_02.png" style="position: relative;left:55px">
-            <p class="col-sm-4 col-xs-4" style="position: relative; top:32px; left:60px">
-                <br> 遊戲名稱：厭惡的九月
-                <br> 製作團隊：
-                <a href="../index.html" target="_blank">貓咪學園</a>
-                <br> 遊戲類型：文字冒險
-                <br> 遊戲時間：約十到二十分鐘
-                <br> 遊戲結局：一個真結局
-                <br> 使用程式：RPG Maker MV
-                <br> 製作成員：
-                <a href="http://home.gamer.com.tw/homeindex.php?owner=wer227942914" target="_blank">小喵</a>、<a href="http://home.gamer.com.tw/homeindex.php?owner=tobychou0128" target="_blank">Chobo</a>、<a href="http://www.pixiv.net/member.php?id=9069934" target="_blank">天川白</a>、<a href="http://home.gamer.com.tw/homeindex.php?owner=ueson1000" target="_blank">Tsun Tsai</a>、<a href="http://www.chimakier.com/" target="_blank">粽子</a>
-                <br> 主機空間由<a href="http://www.chimakier.com/" target="_blank">MAKER製造機</a>贊助提供
-            </p>
+            <div id="postmsg" class="col-sm-8 col-xs-8" style="height:240px;top:55px;left:83px;background-color: #f8bfd0; border: white 0px solid;border-radius: 5px;padding: 0px; position: absolute;overflow:hidden;">
+                <div style="height:240px;width: 100%; background-color:#f8bfd0; border:none;overflow-y:scroll;overflow-x:hidden; position: relative;">
+                    <div class="fb-comments" data-href="http://chocolatecatcat.web.fc2.com" data-numposts="10" data-width="100%"></div>
+                </div>
+            </div>
+            <div class="col-sm-1 col-xs-1" style="position: absolute; top:0px; right:0px">
+                <img id="cltoolbtn" src="../Templates/IntersectCat.png" style="position: absolute; height: 40px; width: 40px; top:40px; right:35px ;z-index: 999;">
+                <img src="../Templates/Cat_Hidding_Me_04.png" style="position: absolute; top:70px; right:23px">
+                <img src="../Templates/Cat_Hidding_Me_01.png" style="position: absolute; top:110px; right:22px">
+            </div>
         </div>
-    </div>
     </div>
 </body>
 
