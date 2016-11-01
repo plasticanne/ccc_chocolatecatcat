@@ -1,3 +1,4 @@
+/***@auther plastic.anne@gmail.com***/
 ////test browser and video format
 var supportTouch = !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
 var ie6 = false /*@cc_on || @_jscript_version < 5.7 @*/
@@ -48,9 +49,10 @@ $(window).load(function() {
         opacity: "0"
     }, 200).css("display", "none");
     ////禁用部分瀏覽器影片以圖片取代
-    if ((videoFormatCheck()["webm"] != true &&
-            videoFormatCheck()["h264"] != true &&
-            videoFormatCheck()["ogg"] != true) ||
+    if ((videoFormatCheck()["webm"] != true) ||
+        (iexplorer == true) ||
+        //       videoFormatCheck()["h264"] != true &&
+        //       videoFormatCheck()["ogg"] != true) ||
         (androidnative == true)) {
         $("#video>video,#gamepostvideo>video").remove();
         $("#video").append('<img src="Templates/Bg_01.png" style="z-index: 1; position: fixed;"/>');
@@ -95,6 +97,10 @@ $(window).load(function() {
         };
         $("#gamepostvideo>video,#gamepostvideo>img").css("height", parseFloat(h) * 1.5 + "px");
         scollspeed($(window).scrollTop());
+        $("#gamepost>div>div>div>p").fitText(2.4);
+        $("#gamepost>div>div>div>h1").fitText(0.8);
+        $("#gamepost>div>div>div>h2").fitText(1);
+
     };
     pageSize();
     $(window).resize(function() {
@@ -142,7 +148,7 @@ $(window).load(function() {
         $(this).next("div").velocity({
             scale: "1",
             opacity: "1",
-            textShadowBlur: "10",
+            textShadowBlur: "20",
         }, 400);
         $(this).children("img").animate({
             opacity: "0.4",
@@ -202,7 +208,7 @@ $(window).load(function() {
         ctrlmenu(0, st, winh);
         ////滾到底載入FB
         if ((Math.abs(st + winh - bh) <= 10) && ($("#postmsg").length == 0)) {
-            $("#FBCom").append('<div id="postmsg" class="text-center col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" style="background-color: white; color:black ;border: white 0px solid;border-radius: 5px; position: relative;overflow:hidden;z-index:5">' + '<h1><div class="fb-like" style=" background-color: white; position: relative;z-index:10;" data-href="https://www.facebook.com/ChocolateMacaronCatCat/" data-width="300" data-layout="standard" data-action="recommend" data-size="large" data-show-faces="true" data-share="true"></div></h1>' + '<div style="background-color: white;position: relative;z-index:10;" class="fb-comments" data-href="http://chocolatecatcat.web.fc2.com" data-numposts="10" data-width="100%"></div></div>');
+            $("#FBCom").append('<div id="postmsg" class="text-center col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" style="background-color: white; color:black ;border: white 0px solid;border-radius: 5px; position: relative;overflow:hidden;z-index:5">' + '<h1><div class="fb-like" style=" background-color: white; position: relative;z-index:10;" data-href="https://www.facebook.com/ChocolateMacaronCatCat/" data-width="300" data-layout="standard" data-action="recommend" data-size="large" data-show-faces="true" data-share="true"></div></h1>' + '<div style="background-color: white;position: relative;z-index:10;" class="fb-comments" data-href="http://chocolatecatcat.web.fc2.com/" data-numposts="10" data-width="100%"></div></div>');
             var FBs = document.createElement("script");
             FBs.type = "text/javascript";
             FBs.innerHTML = 'window.fbAsyncInit = function() {FB.init({appId: "583826328471729",xfbml: true,version: "v2.8"});};(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s);js.id = id;js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8&appId=583826328471729";fjs.parentNode.insertBefore(js, fjs);}(document, "script", "facebook-jssdk"));'

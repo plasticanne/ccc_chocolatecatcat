@@ -1,6 +1,7 @@
 <!--**@auther plastic.anne@gmail.com **-->
 <!DOCTYPE>
-<html  lang="zh-Hant-TW">
+<html lang="zh-Hant-TW">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +18,7 @@
     <style type="text/css">
     body {
         //background-color: #000;
-        background: none transparent !important ;
+        background: none transparent !important;
         border: none;
     }
     
@@ -94,6 +95,12 @@
         overflow: hidden;
     }
     
+    #SecretOption_01:hover,
+    #SecretOption_02:hover,
+    #SecretOption_03:hover {
+        cursor: pointer;
+    }
+    
     #SecretOption_01:active::after,
     #SecretOption_01:focus::after,
     #SecretOption_01:hover::after {
@@ -161,9 +168,9 @@
         SecretClick("#SecretOption_02", "#SecretOption_02_msg");
         SecretClick("#SecretOption_03", "#SecretOption_03_msg");
         ////移除fc2浮動字
-        $(".adingoFluctOverlay").html("").css("height","0px");
-        $("#unitedblades_div").html("").css("height","0px");
-        $("#ub_overlay").html("").css("height","0px");
+        $(".adingoFluctOverlay").html("").css("height", "0px");
+        $("#unitedblades_div").html("").css("height", "0px");
+        $("#ub_overlay").html("").css("height", "0px");
         ////
     });
     </script>
