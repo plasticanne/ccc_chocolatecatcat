@@ -288,7 +288,7 @@ body * {
     position: relative;
     background-color: white;
     color: white;
-    padding-top: 50px;
+    padding-top: 0px;
     padding-bottom: 200px;
     overflow: hidden;
 }

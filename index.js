@@ -45,7 +45,7 @@ function videoFormatCheck() {
 ////main
 $(window).load(function() {
     ////網頁完整載入才出現
-    $('#loading').animate({
+    $('#loading').delay(1200).animate({
         opacity: "0"
     }, 200).css("display", "none");
     ////禁用部分瀏覽器影片以圖片取代
@@ -100,7 +100,6 @@ $(window).load(function() {
         $("#gamepost>div>div>div>p").fitText(2.4);
         $("#gamepost>div>div>div>h1").fitText(0.8);
         $("#gamepost>div>div>div>h2").fitText(1);
-
     };
     pageSize();
     $(window).resize(function() {
@@ -141,28 +140,48 @@ $(window).load(function() {
         }, 600);
     });
     ////遊戲大圖特效
-    $("#gamepost>div>div>div").velocity({
-        scale: "0.9"
-    }, 0);
-    $("#gamepost>div>div>a").hover(function() {
-        $(this).next("div").velocity({
+    function imgHoverIn(sele) {
+        sele.next("div").velocity({
             scale: "1",
             opacity: "1",
             textShadowBlur: "20",
         }, 400);
-        $(this).children("img").animate({
+        sele.children("img").animate({
             opacity: "0.4",
         }, 400);
-    }, function() {
-        $(this).next("div").velocity({
+    };
+
+    function imgHoverOut(sele) {
+        sele.next("div").velocity({
             scale: "0.9",
             opacity: "0",
             textShadowBlur: "0",
         }, 400);
-        $(this).children("img").animate({
+        sele.children("img").animate({
             "opacity": "1"
         }, 400);
-    });
+    };
+    function timeImgHoverOut(sele) {
+        setTimeout(function() { imgHoverOut(sele) }, 2000);
+    }
+    function imgShow(winh,st) {
+        for (var i = 0; i < gamepost_a.length; i++) {
+            var aeq = gamepost_a.eq(i)
+            if (!aeq.attr("class").match("active")) {
+                if (aeq.offset().top - winh <= st) {
+                    aeq.addClass('active');
+                    imgHoverIn(aeq);
+                    timeImgHoverOut(aeq);
+                };
+            };
+        };
+    };
+    var gamepost_a = $("#gamepost>div>div>a");
+    $("#gamepost>div>div>div").velocity({
+        scale: "0.9"
+    }, 0);
+    imgShow($(window).height(),$(window).scrollTop());
+    gamepost_a.hover(function() { imgHoverIn($(this)) }, function() { imgHoverOut($(this)) });
     ////左上菜單
     var onmenu
 
@@ -199,6 +218,7 @@ $(window).load(function() {
     }
     ctrlmenu(1, $(window).scrollTop(), $(window).height());
     ////滾輪事件
+
     $(window).scroll(function(event) {
         var bh = $("body").height();
         var st = $(window).scrollTop();
@@ -206,9 +226,12 @@ $(window).load(function() {
         scollspeed(st);
         ////左上菜單
         ctrlmenu(0, st, winh);
+        ////遊戲大圖特效
+        imgShow(winh,st);
+
         ////滾到底載入FB
         if ((Math.abs(st + winh - bh) <= 10) && ($("#postmsg").length == 0)) {
-            $("#FBCom").append('<div id="postmsg" class="text-center col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" style="background-color: white; color:black ;border: white 0px solid;border-radius: 5px; position: relative;overflow:hidden;z-index:5">' + '<h1><div class="fb-like" style=" background-color: white; position: relative;z-index:10;" data-href="https://www.facebook.com/ChocolateMacaronCatCat/" data-width="300" data-layout="standard" data-action="recommend" data-size="large" data-show-faces="true" data-share="true"></div></h1>' + '<div style="background-color: white;position: relative;z-index:10;" class="fb-comments" data-href="http://chocolatecatcat.web.fc2.com/" data-numposts="10" data-width="100%"></div></div>');
+            $("#FBCom").append('<div id="postmsg" class="text-center col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" style="background-color: white; color:black ;border: white 0px solid;border-radius: 5px; position: relative;z-index:5;padding-bottom:50px; ">' + '<h1><div class="fb-like" style=" background-color: white; position: relative;z-index:10;" data-href="https://www.facebook.com/ChocolateMacaronCatCat/" data-width="300" data-layout="standard" data-action="recommend" data-size="large" data-show-faces="true" data-share="true"></div></h1>' + '<div style="background-color: white;position: relative;z-index:10;" class="fb-comments" data-href="http://chocolatecatcat.web.fc2.com" data-numposts="10" data-width="100%"></div></div>');
             var FBs = document.createElement("script");
             FBs.type = "text/javascript";
             FBs.innerHTML = 'window.fbAsyncInit = function() {FB.init({appId: "583826328471729",xfbml: true,version: "v2.8"});};(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s);js.id = id;js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8&appId=583826328471729";fjs.parentNode.insertBefore(js, fjs);}(document, "script", "facebook-jssdk"));'
