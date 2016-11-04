@@ -1,4 +1,5 @@
 <!--**@auther plastic.anne@gmail.com **-->
+<!--**@base on bookblock demo4**-->
 <!DOCTYPE>
 <html lang="zh-Hant-TW">
 
@@ -12,239 +13,359 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link href="Templates/Icon.png" rel="SHORTCUT ICON">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bookblock.js/css/default.css" />
+    <link rel="stylesheet" type="text/css" href="bookblock.js/css/bookblock.css" />
+    <script src="bookblock.js/js/modernizr.custom.js"></script>
+    <script src="bookblock.js/js/jquerypp.custom.js"></script>
+    <script src="bookblock.js/js/jquery.bookblock.js"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <script type="text/javascript" src="https://cdn.rawgit.com/davatron5000/FitText.js/master/jquery.fittext.js"></script>
     <style type="text/css">
     body {
-        //background-color: #000;
+        //background-color: black;
         background: none transparent !important;
         border: none;
+        overflow-x: hidden;
+        overflow-y: scroll;
     }
     
-    body * {
-        border: none;
+    .bb-content,
+    .bb-item {
+        background: none transparent !important;
     }
     
-    #title {
+    .bb-overlay,
+    .bb-flipoverlay {
+        background-color: black;
+    }
+
+    
+    .bb-content .bb-custom-wrapper {
+        width: 100%;
+        height: 100%;
         position: relative;
-        margin-left: -125px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        left: 50%;
     }
     
-    #SecretOption_02_msg,
-    #SecretOption_03_msg {
-        display: none;
+    .bb-custom-wrapper .bb-bookblock {
+        width: 100%;
+        -webkit-perspective: 2000px;
+        perspective: 2000px;
     }
     
+    #bb-bookblock {
+        height: 900px
+    }
+    
+    .bb-custom-side {
+        width: 50%;
+        float: left;
+        overflow: hidden;
+        /* Centering with flexbox */
+        display: -webkit-box;
+        display: -moz-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    
+    .txt {
+        width: 100%;
+        height: 100%;
+        margin: 30px;
+        //background-color: black;
+    }
+    .txt img{
+        width: 100%;
+    }
+
+    
+    .bb-custom-wrapper > nav {
+        width: 100%;
+        height: 40px;
+        margin: 10px auto 10px;
+        position: relative;
+        top: 0px;
+        z-index: 90;
+        text-align: center;
+    }
+    
+    .bb-custom-wrapper > nav a {
+        display: inline-block;
+        text-align: center;
+    }
+    .bb-custom-wrapper > nav a>img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .bb-custom-wrapper > nav a:hover {
+        opacity: 0.6;
+    }
+
+    /* No JS */
+    
+    .no-js .bb-custom-wrapper {
+        height: auto;
+    }
+    
+    .no-js .bb-custom-content {
+        height: 470px;
+    }
+    
+    h1,
     p {
         font-size: 22px;
         color: white;
         font-family: Microsoft JhengHei;
+        //margin: 0px;
+        word-break: break-all;
     }
     
-    #msg {
-        margin: 20px 20px 20px 20px;
-    }
-    
-    #SecretOption_02_msg > .row > div > .right {
-        margin-bottom: 20px;
-        padding: 20px 20px 20px 20px;
-        border: #fff 3px solid;
-        border-radius: 10px;
-    }
-    
-    #SecretOption_02_msg > .row > div > div {
-        display: table-cell;
-        vertical-align: middle;
-    }
-    
-    #SecretOption_02_msg > .row > div > div> img {
-        padding: 10px 10px 10px 10px;
-        position: relative;
-        text-align: center;
-    }
-    
-    #SecretOption {
-        text-align: center;
-    }
-    
-    #SecretOption_01::after {
-        text-align: center;
-        content: url("Templates/SecretOption_01.png");
-        opacity: 0.5;
-        margin: -50px -50px -50px -50px;
-        overflow: hidden;
-    }
-    
-    #SecretOption_02::after {
-        text-align: center;
-        content: url("Templates/SecretOption_02.png");
-        opacity: 0.5;
-        margin: -50px -50px -50px -50px;
-        overflow: hidden;
-    }
-    
-    #SecretOption_03::after {
-        text-align: center;
-        content: url("Templates/SecretOption_03.png");
-        opacity: 0.5;
-        margin: -50px -50px -50px -50px;
-        overflow: hidden;
-    }
-    
-    #SecretOption_01:hover,
-    #SecretOption_02:hover,
-    #SecretOption_03:hover {
-        cursor: pointer;
-    }
-    
-    #SecretOption_01:active::after,
-    #SecretOption_01:focus::after,
-    #SecretOption_01:hover::after {
-        opacity: 1;
-    }
-    
-    #SecretOption_01.active::after {
-        opacity: 1;
-        //content: url("Templates/SecretOption_01.png");
-    }
-    
-    #SecretOption_02:active::after,
-    #SecretOption_02:focus::after,
-    #SecretOption_02:hover::after {
-        opacity: 1;
-    }
-    
-    #SecretOption_02.active::after {
-        opacity: 1;
-        //content: url("Templates/SecretOption_02.png");
-    }
-    
-    #SecretOption_03:active::after,
-    #SecretOption_03:focus::after,
-    #SecretOption_03:hover::after {
-        opacity: 1;
-    }
-    
-    #SecretOption_03.active::after {
-        opacity: 1;
-        //content: url("Templates/SecretOption_03.png");
-    }
-    
-    @media screen and (max-width: 992px) {
-        #menu > img {
-            display: none;
-        }
-        #SecretOption > a > img {
-            margin-left: -10px;
-            margin-right: -10px;
-            width: 250px;
-            height: 120px;
+    @media screen and (max-width: 61.75em) {
+        .bb-custom-side {
+            font-size: 70%;
         }
     }
     
-    @media screen and (max-width: 767px) {
-        #SecretOption > a > img {
-            width: 175px;
-            height: 84px;
+    @media screen and (max-width: 33em) {
+        .bb-custom-side {
+            font-size: 60%;
         }
     }
+    
+    @media screen and (max-width: 767px) {}
     </style>
-    <script type="text/javascript">
-    function SecretClick(SecretOption, SecretOption_msg) {
-        $(SecretOption).click(function() {
-            $("#SecretOption>a").removeClass('active');
-            $(this).addClass("active");
-            $("#msg>div").css("display", "none");
-            $(SecretOption_msg).css("display", "block");
-        });
-    }
-    $(document).ready(function() {
+</head>
 
-        SecretClick("#SecretOption_01", "#SecretOption_01_msg");
-        SecretClick("#SecretOption_02", "#SecretOption_02_msg");
-        SecretClick("#SecretOption_03", "#SecretOption_03_msg");
+<body>
+    <div class="container">
+        <div class="bb-custom-wrapper">
+            <nav>
+                <a id="bb-nav-first" href="#"><img src="Templates/first.png"></a>
+                <a id="bb-nav-prev" href="#"><img src="Templates/prev.png"></a>
+                <a id="bb-nav-next" href="#"><img src="Templates/next.png"></a>
+                <a id="bb-nav-last" href="#"><img src="Templates/last.png"></a>
+            </nav>
+            <div id="bb-bookblock" class="bb-bookblock">
+                <div class="bb-item pair">
+                    <div class="bb-custom-side page L">
+                        <div class="txt">
+                            <p>大家好，這裡是小喵的介紹時間喔！</p>
+                            <p>在這裡要來跟大家，說說有關於貓咪學園的事情。</p>
+                            <p></p>
+                            <p>貓咪學園主要以製作各種風格的RPG的獨立團隊。</p>
+                            <p>團隊的特點是招收許多的新人。</p>
+                            <p>理想是讓所有的新人，都也有機會接觸遊戲製作。</p>
+                            <p>目前團隊最知名的遊戲是【私塾】，一款推理解謎的童話遊戲。</p>
+                            <p>現在也致力於，創作出更多的作品。</p>
+                        </div>
+                    </div>
+                    <div class="bb-custom-side page R">
+                        <div class="txt">
+                            <img style="position: relative; width:150%;left: -50%;" src="Templates/Catteacher2.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="bb-item pair">
+                    <div class="bb-custom-side page L">
+                        <div class="txt">
+                            <p>不過，雖然說是招收新人。</p>
+                            <p>這裡所說的新人，其實更多是指團隊合作上的新人。</p>
+                            <p>以及對自己有自信，卻是苦惱沒有舞台的人。</p>
+                            <p>但這對於能力上的新人就有些抱歉了。</p>
+                            <p>雖然說都是稱作學校，但我們還是希望來應徵的人。</p>
+                            <p>是已經從基礎畢業的貓咪們。</p>
+                            <p></p>
+                            <p>在有許多貓貓被淘汰的殘酷的上一個學期之後。</p>
+                            <p>小喵也不會變得比較有人情味的。</p>
+                            <p>畢竟，貓咪怎麼可能會懂人心呢！</p>
+                        </div>
+                    </div>
+                    <div class="bb-custom-side page R">
+                        <div class="txt">
+                            <img style="position: relative; top: 20%;" src="Templates/story01.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="bb-item pair">
+                    <div class="bb-custom-side page L">
+                        <div class="txt">
+                            <p>不過，也因為貓咪學園的制度。</p>
+                            <p>不會強制的去要求加入的人要長期的待在團隊當中。</p>
+                            <p>這也是我們團隊的特色之一！</p>
+                            <p>小喵也覺得正是因為這樣的制度，私塾才有可能製作成功。</p>
+                            <p>可是在完成之後，還是很想要繼續的製作遊戲啊！</p>
+                            <p>但就現狀來說，有許多的貓咪夥伴，都以經畢業了。</p>
+                            <p>目小喵又要重新一次認識新來的貓咪，更要重新培養一次團隊該有的經驗。</p>
+                        </div>
+                    </div>
+                    <div class="bb-custom-side page R">
+                        <div class="txt">
+                            <p>所以，貓咪學園的下學期，會作一些改革喔！</p>
+                            <p>當然了，就算有所改變。</p>
+                            <p>小喵也不會讓來應徵的人，請他們離開自己的家庭。</p>
+                            <p>學習秘密行動、培養對貓咪的忠誠、訓練貓咪什麼的。</p>
+                            <img src="Templates/story02.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="bb-item pair">
+                    <div class="bb-custom-side page L">
+                        <div class="txt">
+                            <p>貓咪學園的介紹，也就到這邊結束了。</p>
+                            <p>如果對我們團隊有興趣想加入。</p>
+                            <p>或者是有製作遊戲的委託工作，也歡迎和我們連絡。 </p>
+                            <p><a target="_blank"  href="http://goo.gl/forms/G5k1uJHl35"><img style="position: relative;bottom: -7px; width:30px ;height:30px " src="Templates/sns_mailbox.png"></a>mostfamiliaralleyfelis@gmail.com</p>
+                            <img src="Templates/story03.png">
+                        </div>
+                    </div>
+                    <div class="bb-custom-side page R">
+                        <div class="txt">
+                        <p>我們的創作和新的學期，也將一直持續下去。</p>
+                            <p>如果願意支持我們，並且希望我們的遊戲可以上架的話。</p>
+                            <p>這是我們團隊目前募款用的貼圖喔！</p>
+                            <a href="https://store.line.me/stickershop/author/83081/zh-Hant" target="_blank"><img style="width:30%" src="Templates/stage1.png">
+                            <img style="width:30%" src="Templates/stage2.png"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $(document).ready(function() {
         ////移除fc2浮動字
         $(".adingoFluctOverlay").html("").css("height", "0px");
         $("#unitedblades_div").html("").css("height", "0px");
         $("#ub_overlay").html("").css("height", "0px");
         ////
+        var Page = (function() {
+
+            var config = {
+                    $bookBlock: $('#bb-bookblock'),
+                    $navNext: $('#bb-nav-next'),
+                    $navPrev: $('#bb-nav-prev'),
+                    $navFirst: $('#bb-nav-first'),
+                    $navLast: $('#bb-nav-last')
+                },
+                init = function() {
+                    config.$bookBlock.bookblock({
+                        speed: 600,
+                        shadowSides: 0.9,
+                        shadowFlip: 0.8
+                    });
+                    initEvents();
+                },
+                initEvents = function() {
+
+                    var $slides = config.$bookBlock.children();
+
+                    // add navigation events
+                    config.$navNext.on('click touchstart', function() {
+                        config.$bookBlock.bookblock('next');
+                        return false;
+                    });
+
+                    config.$navPrev.on('click touchstart', function() {
+                        config.$bookBlock.bookblock('prev');
+                        return false;
+                    });
+
+                    config.$navFirst.on('click touchstart', function() {
+                        config.$bookBlock.bookblock('first');
+                        return false;
+                    });
+
+                    config.$navLast.on('click touchstart', function() {
+                        config.$bookBlock.bookblock('last');
+                        return false;
+                    });
+
+                    // add swipe events
+                    $slides.on({
+                        'swipeleft': function(event) {
+                            config.$bookBlock.bookblock('next');
+                            return false;
+                        },
+                        'swiperight': function(event) {
+                            config.$bookBlock.bookblock('prev');
+                            return false;
+                        }
+                    });
+
+                    // add keyboard events
+                    $(document).keydown(function(e) {
+                        var keyCode = e.keyCode || e.which,
+                            arrow = {
+                                left: 37,
+                                up: 38,
+                                right: 39,
+                                down: 40
+                            };
+
+                        switch (keyCode) {
+                            case arrow.left:
+                                config.$bookBlock.bookblock('prev');
+                                break;
+                            case arrow.right:
+                                config.$bookBlock.bookblock('next');
+                                break;
+                        }
+                    });
+                };
+
+            return {
+                init: init
+            };
+
+        })();
+        Page.init();
+      
+        ////
+        $(window).resize(function() {
+            var w = $(window).width();
+            if (parseFloat(w) < 600) {
+                if (!$(".page").parent().attr("class").match("singlew")) {
+                    $(".page").unwrap();
+                    $(".page").wrap('<div class="bb-item singlew"></div>');
+                    $('<div class="bb-custom-side single" style="height:100%;"></div>').insertBefore(".page");
+                    $("#bb-bookblock").css({
+                        "width": "200%",
+                        "right": "100%"
+                    });
+                    Page.init();
+                }
+            } else {
+                if ($(".page").parent().attr("class").match("singlew")) {
+                    $(".page").unwrap(".singlew");
+                    $(".single").remove();
+                    for (i = 0; i < $(".page").length; i = i + 2) {
+                        $(".page:eq(" + i + "),.page:eq(" + (i + 1) + ")").wrapAll('<div class="bb-item"></div>');
+                    }
+                    $("#bb-bookblock").css({
+                        "width": "100%",
+                        "right": "0%"
+                    });
+                    Page.init();
+                }
+            }
+
+        });
     });
     </script>
-</head>
-
-<body>
-    <div class="container-fluid">
-        <img id="title" src="Templates/Secret_03.png">
-        <br>
-        <div id="menu" class="row">
-            <img class="col-md-3" src="Templates/Secret_04.png" style="top:60px;-moz-transform:scaleX(-1);-webkit-transform:scaleX(-1);-o-transform:scaleX(-1);transform:scaleX(-1);filter:FlipH;">
-            <div id="SecretOption" class="col-md-6 text-center">
-                <a id="SecretOption_01" class="col-md-4 active"></a>
-                <a id="SecretOption_02" class="col-md-4"> </a>
-                <a id="SecretOption_03" class="col-md-4"></a>
-            </div>
-            <img class="col-md-3 " src="Templates/Secret_04.png" style="top:60px">
-        </div>
-        <div id="msg" class="row">
-            <div id="SecretOption_01_msg" class="col-sm-12">
-                <div class="col-sm-8 col-sm-offset-1">
-                    <p>
-                        <br>主要以製作各種風格的RPG的獨立團隊。
-                        <br> 團隊的特點是招收許多的新人。
-                        <br> 理想是讓所有的新人，都也有機會接觸遊戲製作。
-                        <br> 目前團隊最知名的遊戲是【私塾】，一款推理解謎的童話遊戲。
-                        <br> 現在也致力於，創作出更多的作品。
-                        <br>
-                        <br> 如果對我們團隊有興趣想加入。
-                        <br> 或者是有製作遊戲的委託工作，也歡迎和我們連絡。
-                        <br> mostfamiliaralleyfelis@gmail.com
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <img src="Templates/Catteacher.png " style="bottom:0px">
-                </div>
-            </div>
-            <div id="SecretOption_02_msg" class="col-sm-12 col-xs-12">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12  col-md-8 col-md-offset-2">
-                        <div class="col-xs-6 col-sm-3">
-                            <img src="Templates/RoomCat.png">
-                        </div>
-                        <div class="col-xs-12 right col-sm-9">
-                            <p>
-                                貓貓 這裡是測試用的小貓咪也是團隊裡面最多的一種小貓咪
-                                <br>請注意不能餵貓咪吃巧克力喔
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12  col-md-8 col-md-offset-2">
-                        <div class="col-xs-6 col-sm-3">
-                            <img src="Templates/RoomCat.png">
-                        </div>
-                        <div class="col-xs-12 right col-sm-9">
-                            <p>
-                                貓貓 這裡是測試用的小貓咪也是團隊裡面最多的一種小貓咪
-                                <br>請注意不能餵貓咪吃巧克力喔
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="SecretOption_03_msg" class="col-sm-11 col-sm-offset-1">
-                <p>
-                    <br>貓貓 現在沒有給貓咪糧食的辦法。
-                    <br> 今、猫の餌に方法はありません。
-                    <br> Cats can't be fed at present.
-                </p>
-            </div>
-        </div>
-    </div>
 </body>
 
 </html>

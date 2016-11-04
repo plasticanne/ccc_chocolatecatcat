@@ -102,7 +102,7 @@ body {
     margin-right: 0px;
     margin-bottom: 0px;
     background-color: #000;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
+    //-ms-overflow-style: -ms-autohiding-scrollbar;
     border: none;
     background-color: black;
     color: white;
@@ -110,12 +110,15 @@ body {
     font-size: 18px;
     font-family: Microsoft JhengHei;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 body * {
     border: none;
 }
+/*::-webkit-scrollbar {
+    width: 0px; 
+}*/
 
 #catStory {
     top: 0;
@@ -128,10 +131,10 @@ body * {
 
 #exit {
     z-index: 306;
-    position: fixed;
+    position: absolute;
     width: 40px;
     height: 40px;
-    top: 25px;
+    top: 10px;
     right: 30px;
 }
 
