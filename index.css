@@ -109,6 +109,9 @@ body {
     font-weight: bold;
     font-size: 18px;
     font-family: Microsoft JhengHei;
+
+}
+body>div{
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -125,8 +128,9 @@ body * {
     position: fixed;
     z-index: 300;
     width: 100%;
-    height: 100%;
-    display: none;
+    height: 0%;
+    display: block;
+    overflow: hidden;
 }
 
 #exit {
@@ -139,7 +143,7 @@ body * {
 }
 
 #catStoryBack {
-    position: fixed;
+    position: absolute;
     z-index: 205;
     width: 100%;
     height: 100%;
@@ -149,16 +153,16 @@ body * {
 }
 
 #catStoryiframe {
-    position: fixed;
+    position: absolute;
     z-index: 305;
     width: 100%;
-    height: 100%;
-    display: none;
+    height: 0;
+    display: block;
     border-style: none;
 }
 
 #catStoryBox {
-    position: fixed;
+    position: absolute;
     z-index: 305;
     width: 100%;
     text-align: center;
@@ -360,6 +364,7 @@ body * {
         margin-right: 10%;
     }
 }
+
 
 @media all and (-ms-high-contrast:none),
 (min-width: 0\0) {

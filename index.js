@@ -118,16 +118,16 @@ $(window).load(function() {
     }, 500);
     ////團隊說明頁
     $('#toStory,#footbtn').click(function() {
-        $("#catStory").css("display", "block");
+        $("#catStory").css("height", "100%");
         $("body").css("overflow-y", "hidden");
     });
     $('#no,#exit').click(function() {
-        $("#catStory").css("display", "none");
+        $("#catStory").css("height", "0%");
         $("body").css("overflow-y", "auto");
     });
     $('#yes').click(function() {
         $("#catStoryBox").css("display", "none");
-        $("#catStoryiframe").css("display", "block");
+        $("#catStoryiframe").css("height", "100%");
     });
     ////U2撥放按鈕
     $('#audio').click(function() {

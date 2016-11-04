@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="bookblock.js/css/bookblock.css" />
     <script src="bookblock.js/js/modernizr.custom.js"></script>
     <script src="bookblock.js/js/jquerypp.custom.js"></script>
-    <script src="bookblock.js/js/jquery.bookblock.js"></script>
+    <script src="bookblock.js/js/jquery.bookblock.min.js"></script>
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
     <script type="text/javascript" src="https://cdn.rawgit.com/davatron5000/FitText.js/master/jquery.fittext.js"></script>
     <style type="text/css">
@@ -39,7 +39,6 @@
     .bb-flipoverlay {
         background-color: black;
     }
-
     
     .bb-content .bb-custom-wrapper {
         width: 100%;
@@ -78,18 +77,21 @@
         -moz-box-align: center;
         -webkit-align-items: center;
         align-items: center;
+        padding-top: 7%;
+        padding-left: 7%;
+        padding-right: 7%;
     }
     
     .txt {
         width: 100%;
         height: 100%;
-        margin: 30px;
+    //    margin: 10%;
         //background-color: black;
     }
-    .txt img{
+    
+    .txt img {
         width: 100%;
     }
-
     
     .bb-custom-wrapper > nav {
         width: 100%;
@@ -102,9 +104,12 @@
     }
     
     .bb-custom-wrapper > nav a {
+        margin-right: 1%;
+        margin-left: 1%;
         display: inline-block;
         text-align: center;
     }
+    
     .bb-custom-wrapper > nav a>img {
         width: 40px;
         height: 40px;
@@ -113,7 +118,6 @@
     .bb-custom-wrapper > nav a:hover {
         opacity: 0.6;
     }
-
     /* No JS */
     
     .no-js .bb-custom-wrapper {
@@ -145,7 +149,12 @@
         }
     }
     
-    @media screen and (max-width: 767px) {}
+    @media screen and (max-width: 350px) {
+        .bb-custom-wrapper > nav {
+        text-align: left;
+        left: 30px;
+    }
+    }
     </style>
 </head>
 
@@ -227,17 +236,18 @@
                             <p>貓咪學園的介紹，也就到這邊結束了。</p>
                             <p>如果對我們團隊有興趣想加入。</p>
                             <p>或者是有製作遊戲的委託工作，也歡迎和我們連絡。 </p>
-                            <p><a target="_blank"  href="http://goo.gl/forms/G5k1uJHl35"><img style="position: relative;bottom: -7px; width:30px ;height:30px " src="Templates/sns_mailbox.png"></a>mostfamiliaralleyfelis@gmail.com</p>
-                            <img src="Templates/story03.png">
+                            <p>
+                                <a target="_blank" href="http://goo.gl/forms/G5k1uJHl35"><img style="position: relative;bottom: -7px; width:30px ;height:30px " src="Templates/sns_mailbox.png"></a>mostfamiliaralleyfelis@gmail.com</p>
+                            <img style="width:80%" src="Templates/story03.png">
                         </div>
                     </div>
                     <div class="bb-custom-side page R">
                         <div class="txt">
-                        <p>我們的創作和新的學期，也將一直持續下去。</p>
+                            <p>我們的創作和新的學期，也將一直持續下去。</p>
                             <p>如果願意支持我們，並且希望我們的遊戲可以上架的話。</p>
                             <p>這是我們團隊目前募款用的貼圖喔！</p>
                             <a href="https://store.line.me/stickershop/author/83081/zh-Hant" target="_blank"><img style="width:30%" src="Templates/stage1.png">
-                            <img style="width:30%" src="Templates/stage2.png"></a>
+                                <img style="width:30%" src="Templates/stage2.png"></a>
                         </div>
                     </div>
                 </div>
@@ -325,15 +335,36 @@
                         }
                     });
                 };
-
             return {
                 init: init
             };
 
         })();
         Page.init();
-      
+        bookSide(0);
         ////
+        function bookSide(t) {
+            var imgL =
+                '<img class="booksideL" style="position: absolute; left:10%; top:0;width: 30%;height:50px;transform:scaleY(-1);" src="Templates/book_01.png">' +
+                '<img class="booksideL" style="position: absolute; left:0; top:0;width: 70px; transform:scaleX(-1);" src="Templates/book_03.png">' +
+                '<img class="booksideL" style="position: absolute; left:0; bottom :0;width: 70px; transform:scale(-1);" src="Templates/book_03.png">'
+            var imgL2 =
+                '<img class="booksideL" style="position: absolute; left:50%; top:0;width: 70px; transform:scaleX(-1);" src="Templates/book_03.png">' +
+                '<img class="booksideL" style="position: absolute; left:50%; bottom :0;width: 70px; transform:scale(-1);" src="Templates/book_03.png">'
+            var imgR =
+                '<img class="booksideR" style="position: absolute; right:10%; top:0;width: 30%;height:50px;transform:scaleY(-1);" src="Templates/book_01.png">' +
+                '<img class="booksideR" style="position: absolute; right:0; top:0;width: 70px" src="Templates/book_03.png">' +
+                '<img class="booksideR" style="position: absolute; right:0; bottom:0;width: 70px; transform:scaleY(-1);" src="Templates/book_03.png">'
+            $(".booksideL,.booksideL").remove();
+            if (t == 1) {
+                $(".L").append(imgR + imgL2);
+                $(".R").append(imgR + imgL2);
+            } else {
+                $(".L").append(imgL);
+                $(".R").append(imgR);
+            }
+        }
+
         $(window).resize(function() {
             var w = $(window).width();
             if (parseFloat(w) < 600) {
@@ -346,6 +377,7 @@
                         "right": "100%"
                     });
                     Page.init();
+                    bookSide(1);
                 }
             } else {
                 if ($(".page").parent().attr("class").match("singlew")) {
@@ -359,6 +391,7 @@
                         "right": "0%"
                     });
                     Page.init();
+                    bookSide(0);
                 }
             }
 
