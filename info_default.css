@@ -1,0 +1,135 @@
+/***@auther plastic.anne@gmail.com***/
+a.back-to-top {
+    display: none;
+    width: 70px;
+    height: 70px;
+    text-indent: -9999px;
+    position: fixed;
+    z-index: 999;
+    right: 20px;
+    bottom: 20px;
+    background: url("Templates/Moon_Cat.png") no-repeat center 43%;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+
+#FB {
+    position: fixed;
+    z-index: 999;
+    right: 18px;
+    bottom: 70px;
+}
+
+a:link {
+    color: #F9C;
+}
+
+a:visited {
+    color: #FCF;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    font-family: Microsoft JhengHei;
+}
+
+.container-fluid {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+nav {
+    height: 24px;
+    color: black;
+    border-style: solid;
+    background-color: pink;
+    font-weight: bold;
+}
+
+* a:link {
+    color: white;
+    text-decoration: underline;
+}
+
+* a:hover {
+    color: pink;
+}
+
+* a:visited {
+    color: hotpink;
+}
+
+#language {
+    margin-left: 0px;
+    margin-right: 0px;
+    position: absolute;
+    right: 40px;
+    top: 20px;
+}
+
+#language * {
+    font-family: Microsoft JhengHei;
+}
+
+#language>ul>li {
+    display: inline-block;
+}
+
+#language>ul>li>a>button,
+#language>ul>li>a>button:visited #language>ul>li>a>button:link {
+    color: white;
+    background-color: black;
+    border: 0px solid;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    font-family: Microsoft JhengHei;
+}
+
+#language>ul>li>a>.active,
+#language>ul>li>a>button:active,
+#language>ul>li>a>button:focus,
+#language>ul>li>a>button:hover {
+    color: black;
+    background-color: white;
+    border: 0px solid;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    font-family: Microsoft JhengHei;
+}
+
+#language>ul>li>a>.unavailable,
+#language>ul>li>a>.unavailable:active,
+#language>ul>li>a>.unavailable:focus,
+#language>ul>li>a>.unavailable:hover {
+    color: white;
+    background-color: black;
+    border: 0px solid;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    font-family: Microsoft JhengHei;
+    opacity: 0.5;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 95%;
+    height: 95%;
+    max-width: 1280px;
+    margin: 10px;
+}

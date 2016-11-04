@@ -1,0 +1,144 @@
+/***@auther plastic.anne@gmail.com***/
+a:link {
+    color: #F9C;
+}
+
+a:visited {
+    color: #FCF;
+}
+
+body {
+    overflow: hidden;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: Microsoft JhengHei;
+}
+
+.container-fluid,
+.col-sm-12 {
+    margin: 0px;
+}
+
+.row {
+    position: relative;
+}
+
+#gamebox {
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    position: relative;
+    text-align: center;
+    border-style: none;
+    overflow: hidden;
+}
+
+#play {
+    background-repeat: no-repeat;
+    background-image: url('Templates/Cat_PLAY.png');
+    background-size: contain;
+    background-position: center;
+    width: 25%;
+    height: 25%;
+    z-index: 100;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    border: white 3px solid;
+    border-radius: 20px;
+}
+
+#browser_warning {
+    display: none;
+    position: absolute;
+    width: 320px;
+    height: 1px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+#cltoolbtn:hover,
+#keybtn:hover,
+#postbtn:hover {
+    cursor: pointer;
+}
+
+#play:hover {
+    background-color: black;
+    cursor: pointer;
+    filter: invert(1);
+}
+
+#gameiframe {
+    display: none;
+    position: absolute;
+    margin: 0;
+    top: 0;
+    left: 0;
+    border-style: none;
+    transform-origin: 0 0;
+}
+
+#toolbox {
+    z-index: 200;
+    background-color: black;
+    display: block;
+    position: absolute;
+    border-style: none;
+    width: 1;
+    height: 0;
+    overflow: hidden;
+    top: 0px;
+    left: 0;
+}
+
+#keybtn {
+    background: url('Templates/Moon_Keyboard_01_1.png');
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 999;
+    left: 20px;
+    top: 0px;
+}
+
+#keybtn.active {
+    background: url('Templates/Moon_Keyboard_01_2.png')
+}
+
+#postbtn {
+    background: url('Templates/Moon_Dialogue_1.png');
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 999;
+    left: 80px;
+    top: 0px;
+}
+
+#postbtn.active {
+    background: url('Templates/Moon_Dialogue_2.png')
+}
+
+#FBshare {
+    position: absolute;
+    z-index: 999;
+    left: 130px;
+    top: 15px;
+}
+
+#keymsg {
+    display: none;
+}
+
+#postmsg {
+    display: none;
+}
