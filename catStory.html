@@ -53,7 +53,8 @@
     }
     
     #bb-bookblock {
-        height: 900px
+        height: 900px;
+        
     }
     
     .bb-custom-side {
@@ -77,9 +78,11 @@
         -moz-box-align: center;
         -webkit-align-items: center;
         align-items: center;
-        padding-top: 7%;
+        padding-top: 10%;
         padding-left: 7%;
         padding-right: 7%;
+        height: 100%;
+        border: white 2px solid;
     }
     
     .txt {
@@ -128,24 +131,39 @@
         height: 470px;
     }
     
-    h1,
+    
     p {
         font-size: 22px;
         color: white;
         font-family: Microsoft JhengHei;
-        //margin: 0px;
         word-break: break-all;
     }
-    
-    @media screen and (max-width: 61.75em) {
-        .bb-custom-side {
-            font-size: 70%;
+    @media screen and (max-width: 1679px) {
+    #bb-bookblock {
+        height: 800px
+    }
+    }
+
+    @media screen and (max-width: 1199px) {
+    #bb-bookblock {
+        p {
+            font-size: 20px;
         }
+        height: 700px
+    }
+    }
+    @media screen and (max-width: 991px) {
+        p {
+            font-size: 18px;
+        }
+        #bb-bookblock {
+        height: 600px
+    }
     }
     
-    @media screen and (max-width: 33em) {
-        .bb-custom-side {
-            font-size: 60%;
+    @media screen and (max-width: 767px) {
+        p {
+            font-size: 16px;
         }
     }
     
@@ -183,7 +201,7 @@
                     </div>
                     <div class="bb-custom-side page R">
                         <div class="txt">
-                            <img style="position: relative; width:150%;left: -50%;" src="Templates/Catteacher2.png">
+                            <img style="position: relative; bottom:1%;width:150%;left: -50%;" src="Templates/Catteacher2.png">
                         </div>
                     </div>
                 </div>
@@ -204,7 +222,7 @@
                     </div>
                     <div class="bb-custom-side page R">
                         <div class="txt">
-                            <img style="position: relative; top: 20%;" src="Templates/story01.png">
+                            <img style="position: relative; top: 10%;" src="Templates/story01.png">
                         </div>
                     </div>
                 </div>
@@ -260,7 +278,7 @@
         $(".adingoFluctOverlay").html("").css("height", "0px");
         $("#unitedblades_div").html("").css("height", "0px");
         $("#ub_overlay").html("").css("height", "0px");
-        ////
+        //// 載入bookblock
         var Page = (function() {
 
             var config = {
@@ -342,29 +360,32 @@
         })();
         Page.init();
         bookSide(0);
-        ////
+        //// 加花邊
         function bookSide(t) {
             var imgL =
-                '<img class="booksideL" style="position: absolute; left:10%; top:0;width: 30%;height:50px;transform:scaleY(-1);" src="Templates/book_01.png">' +
+                '<img class="booksideL" style="position: absolute; left:10%; top:3%;width: 30%;height:50px;transform:scaleY(-1);" src="Templates/book_01.png">' +
                 '<img class="booksideL" style="position: absolute; left:0; top:0;width: 70px; transform:scaleX(-1);" src="Templates/book_03.png">' +
                 '<img class="booksideL" style="position: absolute; left:0; bottom :0;width: 70px; transform:scale(-1);" src="Templates/book_03.png">'
             var imgL2 =
                 '<img class="booksideL" style="position: absolute; left:50%; top:0;width: 70px; transform:scaleX(-1);" src="Templates/book_03.png">' +
                 '<img class="booksideL" style="position: absolute; left:50%; bottom :0;width: 70px; transform:scale(-1);" src="Templates/book_03.png">'
             var imgR =
-                '<img class="booksideR" style="position: absolute; right:10%; top:0;width: 30%;height:50px;transform:scaleY(-1);" src="Templates/book_01.png">' +
+                '<img class="booksideR" style="position: absolute; right:10%; top:3%;width: 30%;height:50px;transform:scaleY(-1);" src="Templates/book_01.png">' +
                 '<img class="booksideR" style="position: absolute; right:0; top:0;width: 70px" src="Templates/book_03.png">' +
                 '<img class="booksideR" style="position: absolute; right:0; bottom:0;width: 70px; transform:scaleY(-1);" src="Templates/book_03.png">'
+            var imgL3=
+                '<img class="booksideR" style="position: absolute; right:50%; top:0;width: 70px" src="Templates/book_03.png">' +
+                '<img class="booksideR" style="position: absolute; right:50%; bottom:0;width: 70px; transform:scaleY(-1);" src="Templates/book_03.png">'
             $(".booksideL,.booksideL").remove();
             if (t == 1) {
                 $(".L").append(imgR + imgL2);
                 $(".R").append(imgR + imgL2);
             } else {
-                $(".L").append(imgL);
-                $(".R").append(imgR);
+                $(".L").append(imgL+imgL3);
+                $(".R").append(imgR+imgL2);
             }
         }
-
+        //// 變換單頁
         $(window).resize(function() {
             var w = $(window).width();
             if (parseFloat(w) < 600) {
