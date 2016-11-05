@@ -215,7 +215,7 @@ body * {
 }
 
 #audiomsg {
-    z-index: 500;
+    z-index: 200;
     width: 320px;
     height: auto;
     position: fixed;
