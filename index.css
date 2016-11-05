@@ -2,9 +2,9 @@
 
 @font-face {
     font-family: Connie;
-    src: url('Templates/Connie-Regular.eot'); /* IE9 Compatibility mode */
-    src: url('Templates/Connie-Regular.eot?#iefix') format('embedded-opentype'),
-    url('Templates/Connie-Regular.ttf'), /**/
+    src: url('Templates/Connie-Regular.eot');
+    /* IE9 Compatibility mode */
+    src: url('Templates/Connie-Regular.eot?#iefix') format('embedded-opentype'), url('Templates/Connie-Regular.ttf'), /**/
     url('Templates/Connie-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
     url('Templates/Connie-Regular.woff') format('woff'), /* Modern Browsers */
     url('Templates/Connie-Regular.svg#hank') format('svg'), /* Legacy iOS */
@@ -109,9 +109,9 @@ body {
     font-weight: bold;
     font-size: 18px;
     font-family: Microsoft JhengHei;
-
 }
-body>div{
+
+body>div {
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -119,6 +119,8 @@ body>div{
 body * {
     border: none;
 }
+
+
 /*::-webkit-scrollbar {
     width: 0px; 
 }*/
@@ -140,6 +142,9 @@ body * {
     height: 40px;
     top: 10px;
     right: 30px;
+    background-color: black;
+    border: white 1px solid;
+    border-radius: 5px;
 }
 
 #catStoryBack {
@@ -222,11 +227,15 @@ body * {
     border-radius: 5px
 }
 
-#yes:hover,
-#no:hover,
-#exit:hover,
+#exit:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
 #menu>a:hover,
-#footbtn:hover {
+#footbtn:hover,
+#yes:hover,
+#no:hover {
     cursor: pointer;
 }
 
@@ -364,7 +373,6 @@ body * {
         margin-right: 10%;
     }
 }
-
 
 @media all and (-ms-high-contrast:none),
 (min-width: 0\0) {

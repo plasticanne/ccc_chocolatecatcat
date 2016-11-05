@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="bookblock.js/css/bookblock.css" />
     <script src="bookblock.js/js/modernizr.custom.js"></script>
     <script src="bookblock.js/js/jquerypp.custom.js"></script>
-    <script src="bookblock.js/js/jquery.bookblock.min.js"></script>
+    <script src="bookblock.js/js/jquery.bookblock.js"></script>
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
     <script type="text/javascript" src="https://cdn.rawgit.com/davatron5000/FitText.js/master/jquery.fittext.js"></script>
     <style type="text/css">
@@ -54,7 +54,6 @@
     
     #bb-bookblock {
         height: 900px;
-        
     }
     
     .bb-custom-side {
@@ -88,7 +87,7 @@
     .txt {
         width: 100%;
         height: 100%;
-    //    margin: 10%;
+        //    margin: 10%;
         //background-color: black;
     }
     
@@ -116,6 +115,9 @@
     .bb-custom-wrapper > nav a>img {
         width: 40px;
         height: 40px;
+        background-color: black;
+        border: white 1px solid;
+        border-radius: 5px;
     }
     
     .bb-custom-wrapper > nav a:hover {
@@ -131,34 +133,35 @@
         height: 470px;
     }
     
-    
     p {
         font-size: 22px;
         color: white;
         font-family: Microsoft JhengHei;
         word-break: break-all;
     }
+    
     @media screen and (max-width: 1679px) {
-    #bb-bookblock {
-        height: 800px
-    }
-    }
-
-    @media screen and (max-width: 1199px) {
-    #bb-bookblock {
-        p {
-            font-size: 20px;
+        #bb-bookblock {
+            height: 800px
         }
-        height: 700px
     }
+    
+    @media screen and (max-width: 1199px) {
+        #bb-bookblock {
+            p {
+                font-size: 20px;
+            }
+            height: 700px
+        }
     }
+    
     @media screen and (max-width: 991px) {
         p {
             font-size: 18px;
         }
         #bb-bookblock {
-        height: 600px
-    }
+            height: 600px
+        }
     }
     
     @media screen and (max-width: 767px) {
@@ -169,9 +172,9 @@
     
     @media screen and (max-width: 350px) {
         .bb-custom-wrapper > nav {
-        text-align: left;
-        left: 30px;
-    }
+            text-align: left;
+            left: 30px;
+        }
     }
     </style>
 </head>
@@ -373,7 +376,7 @@
                 '<img class="booksideR" style="position: absolute; right:10%; top:3%;width: 30%;height:50px;transform:scaleY(-1);" src="Templates/book_01.png">' +
                 '<img class="booksideR" style="position: absolute; right:0; top:0;width: 70px" src="Templates/book_03.png">' +
                 '<img class="booksideR" style="position: absolute; right:0; bottom:0;width: 70px; transform:scaleY(-1);" src="Templates/book_03.png">'
-            var imgL3=
+            var imgL3 =
                 '<img class="booksideR" style="position: absolute; right:50%; top:0;width: 70px" src="Templates/book_03.png">' +
                 '<img class="booksideR" style="position: absolute; right:50%; bottom:0;width: 70px; transform:scaleY(-1);" src="Templates/book_03.png">'
             $(".booksideL,.booksideL").remove();
@@ -381,8 +384,8 @@
                 $(".L").append(imgR + imgL2);
                 $(".R").append(imgR + imgL2);
             } else {
-                $(".L").append(imgL+imgL3);
-                $(".R").append(imgR+imgL2);
+                $(".L").append(imgL + imgL3);
+                $(".R").append(imgR + imgL2);
             }
         }
         //// 變換單頁
