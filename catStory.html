@@ -276,118 +276,116 @@
         </div>
     </div>
     <script type="text/javascript">
+    //// bookblock
+    function Page() {
+        $.BookBlock.defaults.speed = 600;
+        $.BookBlock.defaults.shadowSides = 0.9;
+        $.BookBlock.defaults.shadowFlip = 0.9;
+        var config = {
+                $bookBlock: $('#bb-bookblock'),
+                $navNext: $('#bb-nav-next'),
+                $navPrev: $('#bb-nav-prev'),
+                $navFirst: $('#bb-nav-first'),
+                $navLast: $('#bb-nav-last')
+            },
+            init = function() {
+                config.$bookBlock.bookblock();
+                initEvents();
+            },
+            initEvents = function() {
+
+                var $slides = config.$bookBlock.children();
+
+                // add navigation events
+                config.$navNext.on('click touchstart', function() {
+                    config.$bookBlock.bookblock('next');
+                    return false;
+                });
+
+                config.$navPrev.on('click touchstart', function() {
+                    config.$bookBlock.bookblock('prev');
+                    return false;
+                });
+
+                config.$navFirst.on('click touchstart', function() {
+                    config.$bookBlock.bookblock('first');
+                    return false;
+                });
+
+                config.$navLast.on('click touchstart', function() {
+                    config.$bookBlock.bookblock('last');
+                    return false;
+                });
+
+                // add swipe events
+                $slides.on({
+                    'swipeleft': function(event) {
+                        config.$bookBlock.bookblock('next');
+                        return false;
+                    },
+                    'swiperight': function(event) {
+                        config.$bookBlock.bookblock('prev');
+                        return false;
+                    }
+                });
+
+                // add keyboard events
+                $(document).keydown(function(e) {
+                    var keyCode = e.keyCode || e.which,
+                        arrow = {
+                            left: 37,
+                            up: 38,
+                            right: 39,
+                            down: 40
+                        };
+
+                    switch (keyCode) {
+                        case arrow.left:
+                            config.$bookBlock.bookblock('prev');
+                            break;
+                        case arrow.right:
+                            config.$bookBlock.bookblock('next');
+                            break;
+                    }
+                });
+            };
+        return {
+            init: init
+        };
+    };
+    //// 加花邊
+    function bookSide(t) {
+        var imgL =
+            '<img class="booksideL" style="position: absolute; left:10%; top:3%;width: 30%;height:50px;transform:scaleY(-1);" src="Templates/book_01.png">' +
+            '<img class="booksideL" style="position: absolute; left:0; top:0;width: 70px; transform:scaleX(-1);" src="Templates/book_03.png">' +
+            '<img class="booksideL" style="position: absolute; left:0; bottom :0;width: 70px; transform:scale(-1);" src="Templates/book_03.png">' +
+            '<img class="booksideR" style="position: absolute; right:50%; top:0;width: 70px" src="Templates/book_03.png">' +
+            '<img class="booksideR" style="position: absolute; right:50%; bottom:0;width: 70px; transform:scaleY(-1);" src="Templates/book_03.png">'
+        var imgR =
+            '<img class="booksideL" style="position: absolute; left:50%; top:0;width: 70px; transform:scaleX(-1);" src="Templates/book_03.png">' +
+            '<img class="booksideL" style="position: absolute; left:50%; bottom :0;width: 70px; transform:scale(-1);" src="Templates/book_03.png">' +
+            '<img class="booksideR" style="position: absolute; right:10%; top:3%;width: 30%;height:50px;transform:scaleY(-1);" src="Templates/book_01.png">' +
+            '<img class="booksideR" style="position: absolute; right:0; top:0;width: 70px" src="Templates/book_03.png">' +
+            '<img class="booksideR" style="position: absolute; right:0; bottom:0;width: 70px; transform:scaleY(-1);" src="Templates/book_03.png">'
+
+        $(".booksideL,.booksideL").remove();
+        if (t == 1) {
+            $(".L").append(imgR);
+            $(".R").append(imgR);
+        } else {
+            $(".L").append(imgL);
+            $(".R").append(imgR);
+        }
+    }
     $(document).ready(function() {
         ////移除fc2浮動字
         $(".adingoFluctOverlay").html("").css("height", "0px");
         $("#unitedblades_div").html("").css("height", "0px");
         $("#ub_overlay").html("").css("height", "0px");
-        //// 載入bookblock
-        var Page = (function() {
-
-            var config = {
-                    $bookBlock: $('#bb-bookblock'),
-                    $navNext: $('#bb-nav-next'),
-                    $navPrev: $('#bb-nav-prev'),
-                    $navFirst: $('#bb-nav-first'),
-                    $navLast: $('#bb-nav-last')
-                },
-                init = function() {
-                    config.$bookBlock.bookblock({
-                        speed: 600,
-                        shadowSides: 0.9,
-                        shadowFlip: 0.9
-                    });
-                    initEvents();
-                },
-                initEvents = function() {
-
-                    var $slides = config.$bookBlock.children();
-
-                    // add navigation events
-                    config.$navNext.on('click touchstart', function() {
-                        config.$bookBlock.bookblock('next');
-                        return false;
-                    });
-
-                    config.$navPrev.on('click touchstart', function() {
-                        config.$bookBlock.bookblock('prev');
-                        return false;
-                    });
-
-                    config.$navFirst.on('click touchstart', function() {
-                        config.$bookBlock.bookblock('first');
-                        return false;
-                    });
-
-                    config.$navLast.on('click touchstart', function() {
-                        config.$bookBlock.bookblock('last');
-                        return false;
-                    });
-
-                    // add swipe events
-                    $slides.on({
-                        'swipeleft': function(event) {
-                            config.$bookBlock.bookblock('next');
-                            return false;
-                        },
-                        'swiperight': function(event) {
-                            config.$bookBlock.bookblock('prev');
-                            return false;
-                        }
-                    });
-
-                    // add keyboard events
-                    $(document).keydown(function(e) {
-                        var keyCode = e.keyCode || e.which,
-                            arrow = {
-                                left: 37,
-                                up: 38,
-                                right: 39,
-                                down: 40
-                            };
-
-                        switch (keyCode) {
-                            case arrow.left:
-                                config.$bookBlock.bookblock('prev');
-                                break;
-                            case arrow.right:
-                                config.$bookBlock.bookblock('next');
-                                break;
-                        }
-                    });
-                };
-            return {
-                init: init
-            };
-
-        })();
-        Page.init();
+        //// bookblock初始化
+        page = new Page();
+        page.init();
         bookSide(0);
-        //// 加花邊
-        function bookSide(t) {
-            var imgL =
-                '<img class="booksideL" style="position: absolute; left:10%; top:3%;width: 30%;height:50px;transform:scaleY(-1);" src="Templates/book_01.png">' +
-                '<img class="booksideL" style="position: absolute; left:0; top:0;width: 70px; transform:scaleX(-1);" src="Templates/book_03.png">' +
-                '<img class="booksideL" style="position: absolute; left:0; bottom :0;width: 70px; transform:scale(-1);" src="Templates/book_03.png">'
-            var imgL2 =
-                '<img class="booksideL" style="position: absolute; left:50%; top:0;width: 70px; transform:scaleX(-1);" src="Templates/book_03.png">' +
-                '<img class="booksideL" style="position: absolute; left:50%; bottom :0;width: 70px; transform:scale(-1);" src="Templates/book_03.png">'
-            var imgR =
-                '<img class="booksideR" style="position: absolute; right:10%; top:3%;width: 30%;height:50px;transform:scaleY(-1);" src="Templates/book_01.png">' +
-                '<img class="booksideR" style="position: absolute; right:0; top:0;width: 70px" src="Templates/book_03.png">' +
-                '<img class="booksideR" style="position: absolute; right:0; bottom:0;width: 70px; transform:scaleY(-1);" src="Templates/book_03.png">'
-            var imgL3 =
-                '<img class="booksideR" style="position: absolute; right:50%; top:0;width: 70px" src="Templates/book_03.png">' +
-                '<img class="booksideR" style="position: absolute; right:50%; bottom:0;width: 70px; transform:scaleY(-1);" src="Templates/book_03.png">'
-            $(".booksideL,.booksideL").remove();
-            if (t == 1) {
-                $(".L").append(imgR + imgL2);
-                $(".R").append(imgR + imgL2);
-            } else {
-                $(".L").append(imgL + imgL3);
-                $(".R").append(imgR + imgL2);
-            }
-        }
         //// 變換單頁
         $(window).resize(function() {
             var w = $(window).width();
@@ -400,9 +398,9 @@
                         "width": "200%",
                         "right": "100%"
                     });
-                    Page.init();
+                    page.init();
                     bookSide(1);
-                }
+                };
             } else {
                 if ($(".page").parent().attr("class").match("singlew")) {
                     $(".page").unwrap(".singlew");
@@ -414,12 +412,13 @@
                         "width": "100%",
                         "right": "0%"
                     });
-                    Page.init();
+                    page.init();
                     bookSide(0);
                 }
             }
-
         });
+
+
     });
     </script>
 </body>
