@@ -255,13 +255,13 @@ $(window).load(function() {
                 '<div class="fb-like" style=" background-color: white; position: relative;z-index:10;" data-href="https://www.facebook.com/ChocolateMacaronCatCat/" data-width="300" data-layout="standard" data-action="recommend" data-size="large" data-show-faces="true" data-share="true">' +
                 '</div>' +
                 '</h1>' +
-                '<div style="background-color: white;position: relative;z-index:10;" class="fb-comments" data-href="http://chocolatecatcat.web.fc2.com" data-numposts="10" data-width="100%">' +
+                '<div style="background-color: white;position: relative;z-index:10;" class="fb-comments" data-href="http://chocolatecatcat.web.fc2.com/board.html" data-numposts="10" data-width="100%">' +
                 '</div>' +
                 '</div>';
             $("#FBCom").append(FBcommentsplgin);
             var FBs = document.createElement("script");
             FBs.type = "text/javascript";
-            FBs.innerHTML = 'window.fbAsyncInit = function() {FB.init({appId: "583826328471729",xfbml: true,version: "v2.8"});};(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s);js.id = id;js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8&appId=583826328471729";fjs.parentNode.insertBefore(js, fjs);}(document, "script", "facebook-jssdk"));'
+            FBs.innerHTML = 'window.fbAsyncInit = function() {FB.init({appId: "745098148964766",xfbml: true,version: "v2.8"});};(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s);js.id = id;js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8&appId=745098148964766";fjs.parentNode.insertBefore(js, fjs);}(document, "script", "facebook-jssdk"));'
             $("#FBCom").append(FBs);
         };
     });
