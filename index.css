@@ -111,7 +111,7 @@ body {
     font-family: Microsoft JhengHei;
 }
 
-body>div {
+#body {
     overflow-x: hidden;
     overflow-y: auto;
 }
