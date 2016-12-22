@@ -314,6 +314,7 @@ body * {
     overflow: hidden;
 }
 
+
 #gamepost>div {
     z-index: 29;
     position: relative;
@@ -359,10 +360,22 @@ body * {
     z-index: 30;
 }
 
-#gamepost>div>div>a>img {
+#gamepost>div>div>a>.game_pic {
     z-index: 25;
     position: relative;
     width: 100%;
+}
+#gamepost>div>div>a>div {
+    z-index: 29;
+    position: absolute;
+    height: 100%;
+    width:  100%;
+}
+#gamepost>div>div>a>div>.book_Page {
+    z-index: 29;
+    position: absolute;
+    top: -60px;
+    right: 10px;
 }
 
 @media screen and (max-width: 767px) {

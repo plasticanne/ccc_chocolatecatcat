@@ -59,11 +59,14 @@ ga('send', 'pageview');
 
 
 ////main
+$("body").css("overflow-y", "hidden");
+//$(document).ready(function() {
 $(window).load(function() {
     ////網頁完整載入才出現
     $('#loading').delay(1200).animate({
         opacity: "0"
     }, 200).css("display", "none");
+    $("body").css("overflow-y", "auto");
     ////禁用部分瀏覽器影片以圖片取代
     if ((videoFormatCheck()["webm"] != true) ||
         (iexplorer == true) ||
@@ -71,8 +74,8 @@ $(window).load(function() {
         //       videoFormatCheck()["ogg"] != true) ||
         (androidnative == true)) {
         $("#video>video,#gamepostvideo>video").remove();
-        $("#video").append('<img src="Templates/Bg_01.png" style="z-index: 1; position: fixed;"/>');
-        $("#gamepostvideo").append('<img src="Templates/back.png" style="z-index: 2; position: fixed ;opacity: 0.5"/>');
+        $("#video").append('<img src="Templates/Bg_01.jpg" style="z-index: 1; position: fixed;"/>');
+        $("#gamepostvideo").append('<img src="Templates/back.jpg" style="z-index: 2; position: fixed ;opacity: 0.5"/>');
     };
     ////移除fc2浮動字
     $(".adingoFluctOverlay").html("").css("height", "0px");
@@ -142,6 +145,7 @@ $(window).load(function() {
         $("body").css("overflow-y", "auto");
     });
     $('#yes').click(function() {
+        $("#catStoryiframe").attr("src","catStory.html");
         $("#catStoryBox").css("display", "none");
         $("#catStoryiframe").css("height", "100%");
     });

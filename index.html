@@ -42,6 +42,7 @@
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/davatron5000/FitText.js/master/jquery.fittext.js"></script>
     <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
 </head>
 
 <body>
@@ -60,7 +61,7 @@
     </span>
         <div id="audiomsg">
             <div class="video-container">
-                <iframe width="176" height="144" src="https://www.youtube.com/embed/videoseries?list=PLozD1QSkmigzwtsV-Yd1pcDZMpXkvXFkR&fmt=34&autoplay=1&loop=1" frameborder="0" allowfullscreen></iframe>
+                <!--<iframe width="176" height="144" aasrc="https://www.youtube.com/embed/videoseries?list=PLozD1QSkmigzwtsV-Yd1pcDZMpXkvXFkR&fmt=34&autoplay=1&loop=1" frameborder="0" allowfullscreen></iframe>-->
             </div>
         </div>
         <div id="gamepostvideo" style="z-index: 1 ;position: fixed; top:0px; background-color: black; overflow: hidden;height: 100%; width: 100%;">
@@ -94,7 +95,7 @@
         <div id="catStory">
             <div id="catStoryBack"></div>
             <img id="exit" src="Templates/cancel.png">
-            <iframe id="catStoryiframe" allowtransparency="true" src="catStory.html"></iframe>
+            <iframe id="catStoryiframe" allowtransparency="true" ></iframe>
             <div id="catStoryBox">
                 <img id="quest" src="Templates/Secret_01.png">
                 <br>
@@ -114,9 +115,12 @@
             <div id="gamepost" class="row">
                 <h1 align="center" style="color: black;margin-bottom: 60px;margin-top: 50px;">Games</h1>
                 <div class="col-sm-12">
-                    <div id="" class="col-sm-6 col-md-6">
+                    <div id="" class="gamepostdiv col-sm-6 col-md-6">
                         <a class="" href="./cat_school/cat_school.html" target="_blank">
-                            <img src="gamepage/cat_school.png">
+                            <img class="game_pic" data-original="gamepage/cat_school.jpg">
+                            <div>
+                                <img class="book_Page" src="Templates/book_Page.gif">
+                            </div>
                         </a>
                         <div>
                             <h1>Singspiel</h1>
@@ -125,9 +129,12 @@
                             <p>This is a fairy tale, only dedicated us to do not want to grow up, there are many words who do not want to say.</p>
                         </div>
                     </div>
-                    <div id="" class="col-sm-6 col-md-6">
+                    <div id="" class="gamepostdiv col-sm-6 col-md-6">
                         <a class="" href="http://home.gamer.com.tw/creationDetail.php?sn=3243301" target="_blank">
-                            <img src="gamepage/matthiola_reverie_verse.png">
+                            <img class="game_pic" data-original="gamepage/matthiola_reverie_verse.jpg">
+                            <div>
+                                <img class="book_Page" src="Templates/book_Page.gif">
+                            </div>
                         </a>
                         <div>
                             <h2>Matthiola Reverie Verse</h2>
@@ -136,9 +143,12 @@
                             <p>Girls have the courage to give their own reasons, even if the reasons for false or Ye Hao.</p>
                         </div>
                     </div>
-                    <div id="" class="col-sm-6 col-md-6">
+                    <div id="" class="gamepostdiv col-sm-6 col-md-6">
                         <a class="" href="./disgust_september/disgust_september.html" target="_blank">
-                            <img src="gamepage/disgust_september.png">
+                            <img class="game_pic" data-original="gamepage/disgust_september.jpg">
+                            <div>
+                                <img class="book_Page" src="Templates/book_Page.gif">
+                            </div>
                         </a>
                         <div>
                             <h1>Disgust September</h1>
@@ -147,9 +157,12 @@
                             <p>Tough it's a story, which is made up, we still can give the hands to those who just silently stand in the dark.</p>
                         </div>
                     </div>
-                    <div id="" class="col-sm-6 col-md-6">
+                    <div id="" class="gamepostdiv col-sm-6 col-md-6">
                         <a class="" href="./silent_august/silent_august.html" target="_blank">
-                            <img src="gamepage/silent_august.png">
+                            <img class="game_pic" data-original="gamepage/silent_august.jpg">
+                            <div>
+                                <img class="book_Page" src="Templates/book_Page.gif">
+                            </div>
                         </a>
                         <div>
                             <h1>Silent August</h1>
@@ -170,6 +183,20 @@
             </div>
         </div>
     </div>
+    <script async type="text/javascript">
+    $("img").lazyload({ threshold : 100 ,placeholder:""});
+    </script>
+    <script async type="text/javascript">
+    $(window).load(function() {
+        setTimeout(function() {
+            var u2b = document.createElement('iframe');
+            u2b.src = "https://www.youtube.com/embed/videoseries?list=PLozD1QSkmigzwtsV-Yd1pcDZMpXkvXFkR&fmt=34&autoplay=1&loop=1";
+            u2b.width = 176;
+            u2b.height = 144;
+            $('.video-container').append(u2b)
+        }, 5000)
+    });
+    </script>
 </body>
 
 </html>
