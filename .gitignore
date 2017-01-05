@@ -6,3 +6,4 @@
 *.ogg
 *.psd
 old/*
+node_modules/*
