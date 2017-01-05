@@ -374,8 +374,8 @@ body * {
 #gamepost>div>div>a>div>.book_Page {
     z-index: 29;
     position: absolute;
-    top: -60px;
-    right: 10px;
+    top: -70px;
+    right: 15px;
 }
 
 @media screen and (max-width: 767px) {

@@ -145,7 +145,7 @@ $(window).load(function() {
         $("body").css("overflow-y", "auto");
     });
     $('#yes').click(function() {
-        $("#catStoryiframe").attr("src","catStory.html");
+        $("#catStoryiframe").attr("src", "catStory.html");
         $("#catStoryBox").css("display", "none");
         $("#catStoryiframe").css("height", "100%");
     });
@@ -193,7 +193,9 @@ $(window).load(function() {
                 if (aeq.offset().top - winh <= st) {
                     aeq.addClass('active');
                     imgHoverIn(aeq);
-                    timeImgHoverOut(aeq);
+                    if (!supportTouch) {
+                        timeImgHoverOut(aeq);
+                    };
                 };
             };
         };
@@ -254,7 +256,7 @@ $(window).load(function() {
         ////滾到底載入FB
         if ((Math.abs(st + winh - bh) <= 10) && ($("#postmsg").length == 0)) {
             var FBcommentsplgin =
-                '<div id="postmsg" class="text-center col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" style="background-color: white; color:black ;border: white 0px solid;border-radius: 5px; position: relative;z-index:5;padding-bottom:50px; ">' +
+                '<div id="postmsg" class="text-center col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" style="background-color: white; color:black ;border: white 0px solid;border-radius: 5px; position: relative;z-index:5;padding-bottom:50px;overflow-x:hidden ">' +
                 '<h1 style="overflow:hidden;">' +
                 '<div class="fb-like" style=" background-color: white; position: relative;z-index:10;" data-href="https://www.facebook.com/ChocolateMacaronCatCat/" data-width="300" data-layout="standard" data-action="recommend" data-size="large" data-show-faces="true" data-share="true">' +
                 '</div>' +
