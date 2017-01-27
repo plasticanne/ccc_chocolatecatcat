@@ -41,6 +41,9 @@ body {
     margin-left: 20px;
     margin-right: 20px;
 }
+.row {
+    margin-left: 200px;
+}
 
 nav {
     height: 24px;
@@ -62,6 +65,9 @@ nav {
 * a:visited {
     color: hotpink;
 }
+li {
+    list-style-type:none;
+}
 
 #language {
     margin-left: 0px;
@@ -75,36 +81,8 @@ nav {
     font-family: Microsoft JhengHei;
 }
 
-#language>ul>li {
-    display: inline-block;
-}
 
-#language>ul>li>a>button,
-#language>ul>li>a>button:visited #language>ul>li>a>button:link {
-    color: white;
-    background-color: black;
-    border: 0px solid;
-    border-radius: 10px;
-    padding: 10px 10px 10px 10px;
-    font-family: Microsoft JhengHei;
-}
-
-#language>ul>li>a>.active,
-#language>ul>li>a>button:active,
-#language>ul>li>a>button:focus,
-#language>ul>li>a>button:hover {
-    color: black;
-    background-color: white;
-    border: 0px solid;
-    border-radius: 10px;
-    padding: 10px 10px 10px 10px;
-    font-family: Microsoft JhengHei;
-}
-
-#language>ul>li>a>.unavailable,
-#language>ul>li>a>.unavailable:active,
-#language>ul>li>a>.unavailable:focus,
-#language>ul>li>a>.unavailable:hover {
+#language>span>button{
     color: white;
     background-color: black;
     border: 0px solid;
@@ -112,6 +90,31 @@ nav {
     padding: 10px 10px 10px 10px;
     font-family: Microsoft JhengHei;
     opacity: 0.5;
+}
+
+#language>span>.active,
+#language>span>button:active,
+#language>span>button:focus,
+#language>span>button:hover {
+    color: black;
+    background-color: white;
+    border: 0px solid;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    font-family: Microsoft JhengHei;
+    opacity: 1;
+}
+
+#lMenu{
+    position: fixed;
+    width: 180px;
+    height: 100%;
+    border-right: 1px solid white;
+    padding-top: 50px;
+}
+#lMenu>ul{
+    padding-bottom: 20px;
+    padding-left: 40px;
 }
 
 .video-container {

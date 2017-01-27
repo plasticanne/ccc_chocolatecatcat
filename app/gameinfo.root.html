@@ -1,0 +1,27 @@
+<div id="language">
+    <span *ngFor="let i of langList">
+        <button (click)="onSelLang(i.lang)" [class.active]="i.lang === onActLang">{{i.sub}}</button>
+    </span>
+</div>
+<div id="FB">
+    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FChocolateMacaronCatCat%2F&width=52&layout=box_count&action=like&show_faces=false&share=true&height=65&appId" width="65" height="90" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+</div>
+<div id="lMenu">
+    <ul *ngFor="let i of lMenuList">
+        <li *ngIf='i.active'>
+            <span (click)="onSelLMenu(i.lMenu)" [class.active]="i.lMenu === onActLMenu">
+        <p *ngIf="onActLang=='zh-tw'">
+        	{{i.button[0].sub}}
+        </p>
+        <p *ngIf="onActLang=='en-us'">
+            {{i.button[1].sub}}
+        </p>
+        <p *ngIf="onActLang=='jp-ja'">
+            {{i.button[2].sub}}
+        </p>
+            </span>
+        </li>
+    </ul>
+</div>
+<gameinfo-main class="container-fluid" [langTemp]="onActLang"></gameinfo-main>
+<!--<router-outlet [langTemp]="onActLang"></router-outlet>-->
